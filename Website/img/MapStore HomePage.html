@@ -1,0 +1,3370 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://localhost:7080/mapstore/#/dashboard/39 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" id="theme_stylesheet" data-ms-state="mounted" data-ms-theme="default" data-ms-path="dist/themes" data-ms-version="2024.02.02" href="./MapStore HomePage_files/default.css"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MapStore HomePage</title><style>body{margin:0}._ms2_init_center{position:fixed;top:0;left:0;bottom:0;right:0;overflow:show;margin:auto;display:flex;align-items:center}._ms2_init_spinner{height:176px;width:176px}._ms2_init_spinner>div,._ms2_init_spinner>div:after{border-radius:50%;width:176px;height:176px}._ms2_init_spinner>div{box-sizing:border-box;text-indent:-9999em;border:16px solid rgba(119,119,119,.2);border-left:16px solid #777;-webkit-transform:translateZ(0);-ms-transform:translateZ(0);transform:translateZ(0);-webkit-animation:_ms2_init_anim 1.1s infinite linear;animation:_ms2_init_anim 1.1s infinite linear}@-webkit-keyframes _ms2_init_anim{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes _ms2_init_anim{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}._ms2_init_text{-webkit-animation:_ms2_init_text_anim 2s linear 0s infinite normal;animation:_ms2_init_text_anim 2s linear 0s infinite normal;color:#6f6f6f;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;height:.75em;width:6em;text-align:center;margin:auto;z-index:1000}@keyframes _ms2_init_text_anim{0%{opacity:0}20%{opacity:0}50%{opacity:1}70%{opacity:.75}100%{opacity:0}}</style><link rel="preconnect" href="https://fonts.gstatic.com/"><link href="./MapStore HomePage_files/css2" rel="stylesheet"><link rel="shortcut icon" type="image/png" href="https://cdn.jslibs.mapstore2.geo-solutions.it/leaflet/favicon.ico"><script src="./MapStore HomePage_files/es5.js.download" async="" integrity="sha384-CWiXbo5RNu6nv9tiCWA2y1DQKjEQDDH+yFQga1FytuIZjOTcVr+4ojw2S2lShj/d" crossorigin="anonymous" onload="checkBrowser()"></script><script>function checkBrowser(){bowser.getParser(window.navigator.userAgent).satisfies({edge:">1",chrome:">1",safari:">1",firefox:">1"})||(window.location.href="unsupportedBrowser.html",document.querySelector("container").style.display="none")}</script><style>.ms2 html, .ms2 body, .ms2 #container, .ms2 .fill {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.ms2 .viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #EEE;
+}
+
+.ms2 #map {
+    position:absolute;
+    width: 100%;
+    top: 0;
+    bottom: 28px;
+    height: auto;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ms2 #home-button {
+    float: left;
+}
+.ms2 #navigationBar #home-button {
+    float: none;
+}
+
+.ms2 .leaflet-control-attribution > a:first-child{
+    display: none;
+    visibility: hidden;
+}
+
+.ms2 .map-logo{
+	position:absolute;
+	width:90px;
+	height:27px;
+	bottom:36px;
+	left:5px;
+	background-image:url(http://localhost:7080/mapstore/dist/web/client/product/assets/img/mapstore2_logo.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+    cursor: pointer;
+}
+
+.ms2 .map-logo > img{
+    width: 90px;
+    height: 27px;
+    opacity: 0;
+}
+
+.ms2 .with-love {
+    position:absolute;
+	width:90px;
+	height:27px;
+	bottom:35px;
+	margin-left:auto;
+	margin-right:auto;
+	left:0;
+	right:0;
+    background-image:url(http://localhost:7080/mapstore/dist/web/client/product/assets/img/made-in-italy-logo.png);
+	background-size:contain;
+}
+
+.ms2 .modal-dialog-container {
+    z-index: 2000;
+}
+
+.ms2 #mapstore-scalebox-container {
+    bottom: -36px !important;
+    right: 323px !important;
+}
+
+.ms2 #mapstore-mouseposition {
+    width: auto !important;
+    right: 5px !important;
+    background-color: transparent !important;
+    height: 25px !important;
+}
+
+.ms2 #mapstore-mouseposition .mouseposition-separator {
+    display: inline !important;
+}
+
+.ms2 #mapstore-mouseposition .label {
+    font-size: 90% !important;
+}
+
+
+.ms2 #mapstore-mouseposition .mouseposition-crs {
+    font-size: 90%;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.ms2 #mapstore-getfeatureinfo.mapstore-right-panel {
+    position: absolute;
+    height: calc(100% - 30px);
+    right: 0;
+    left: auto;
+    top: 0;
+    margin-top: 0;
+    border: none;
+}
+
+.ms2 .mapstore-right-panel .info-wrap {
+    position: absolute;
+    bottom: 0;
+    top: 51px;
+    width: 100%;
+    padding: 0;
+}
+
+.ms2 .mapstore-right-panel .mapstore-identify-viewer {
+    position: absolute;
+    top: 60px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+.ms2 .mapstore-right-panel div[role=body], .ms2 .mapstore-right-panel .react-swipeable-view-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.ms2 .mapstore-right-panel .swipeable-view {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    position: absolute;
+}
+
+.ms2 .mapstore-right-panel .alert-info {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.ms2 .mapstore-right-panel #mapstore-identify-revgeocoder {
+    padding: 15px;
+}
+
+.ms2 #container > .chart-color-class-popover.popover {
+    z-index: 10000;
+}
+
+.ms2 #container > .chart-color-class-popover.popover > .popover-content {
+    max-height: 250px;
+    overflow-y: auto;
+}
+</style><style>.ms2 .manager .mapstore-header {
+    background-image: url(http://localhost:7080/mapstore/dist/web/client/product/assets/img/manager-header.jpg);
+    height: 200px;
+    z-index: -100;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    top: -20px;
+}
+
+.ms2 .manager .MapSearchBar.user-search {
+    top: -100px;
+    height: 0;
+    overflow: visible;
+}
+.ms2 .manager .MapSearchBar.user-search .input-group {
+    box-shadow: -1px 1px 5px 1px rgba(94,94,94,1);
+}
+.ms2 .manager .Manager-Container {
+    margin: 0;
+}
+
+.ms2 .manager #home-button {
+    float: right;
+}
+</style><style>@-webkit-keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-moz-keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@-ms-keyframes sk-fade-in {
+  .ms2 0% {
+      opacity: 0;
+  }
+  .ms2 50% {
+      opacity: 0;
+  }
+  .ms2 100% {
+      opacity: 1;
+  }
+}
+
+@keyframes sk-fade-in {
+  0% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+.ms2 .sk-fade-in {
+  -webkit-animation: sk-fade-in 2s;
+  -moz-animation: sk-fade-in 2s;
+  -o-animation: sk-fade-in 2s;
+  -ms-animation: sk-fade-in 2s;
+}
+</style><style>.ms2 .sk-chasing-dots {
+  width: 27px;
+  height: 27px;
+  position: relative;
+
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.ms2 .sk-dot1, .ms2 .sk-dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  border-radius: 100%;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.ms2 .sk-dot2 {
+  top: auto;
+  bottom: 0px;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style><style>.ms2 .sk-circle-wrapper {
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+
+.ms2 .sk-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.ms2 .sk-circle:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 20%;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-bouncedelay 1.2s infinite ease-in-out;
+  animation: sk-bouncedelay 1.2s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.ms2 .sk-circle2  { -webkit-transform: rotate(30deg);  transform: rotate(30deg)  }
+.ms2 .sk-circle3  { -webkit-transform: rotate(60deg);  transform: rotate(60deg)  }
+.ms2 .sk-circle4  { -webkit-transform: rotate(90deg);  transform: rotate(90deg)  }
+.ms2 .sk-circle5  { -webkit-transform: rotate(120deg); transform: rotate(120deg) }
+.ms2 .sk-circle6  { -webkit-transform: rotate(150deg); transform: rotate(150deg) }
+.ms2 .sk-circle7  { -webkit-transform: rotate(180deg); transform: rotate(180deg) }
+.ms2 .sk-circle8  { -webkit-transform: rotate(210deg); transform: rotate(210deg) }
+.ms2 .sk-circle9  { -webkit-transform: rotate(240deg); transform: rotate(240deg) }
+.ms2 .sk-circle10 { -webkit-transform: rotate(270deg); transform: rotate(270deg) }
+.ms2 .sk-circle11 { -webkit-transform: rotate(300deg); transform: rotate(300deg) }
+.ms2 .sk-circle12 { -webkit-transform: rotate(330deg); transform: rotate(330deg) }
+
+.ms2 .sk-circle2:before  { -webkit-animation-delay: -1.1s; animation-delay: -1.1s }
+.ms2 .sk-circle3:before  { -webkit-animation-delay: -1.0s; animation-delay: -1.0s }
+.ms2 .sk-circle4:before  { -webkit-animation-delay: -0.9s; animation-delay: -0.9s }
+.ms2 .sk-circle5:before  { -webkit-animation-delay: -0.8s; animation-delay: -0.8s }
+.ms2 .sk-circle6:before  { -webkit-animation-delay: -0.7s; animation-delay: -0.7s }
+.ms2 .sk-circle7:before  { -webkit-animation-delay: -0.6s; animation-delay: -0.6s }
+.ms2 .sk-circle8:before  { -webkit-animation-delay: -0.5s; animation-delay: -0.5s }
+.ms2 .sk-circle9:before  { -webkit-animation-delay: -0.4s; animation-delay: -0.4s }
+.ms2 .sk-circle10:before { -webkit-animation-delay: -0.3s; animation-delay: -0.3s }
+.ms2 .sk-circle11:before { -webkit-animation-delay: -0.2s; animation-delay: -0.2s }
+.ms2 .sk-circle12:before { -webkit-animation-delay: -0.1s; animation-delay: -0.1s }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0);
+    transform: scale(0.0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+</style><style>.ms2 .sk-cube-grid {
+  width:27px;
+  height:27px;
+}
+
+.ms2 .sk-cube {
+  width:33%;
+  height:33%;
+  background:#333;
+  float:left;
+  -webkit-animation: sk-scaleDelay 1.3s infinite ease-in-out;
+  animation: sk-scaleDelay 1.3s infinite ease-in-out;
+}
+
+/*
+ * Spinner positions
+ * 1 2 3
+ * 4 5 6
+ * 7 8 9
+ */
+
+.ms2 .sk-spinner .sk-cube:nth-child(1) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+.ms2 .sk-spinner .sk-cube:nth-child(2) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s  }
+.ms2 .sk-spinner .sk-cube:nth-child(3) { -webkit-animation-delay: 0.4s; animation-delay: 0.4s  }
+.ms2 .sk-spinner .sk-cube:nth-child(4) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s  }
+.ms2 .sk-spinner .sk-cube:nth-child(5) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+.ms2 .sk-spinner .sk-cube:nth-child(6) { -webkit-animation-delay: 0.3s; animation-delay: 0.3s  }
+.ms2 .sk-spinner .sk-cube:nth-child(7) { -webkit-animation-delay: 0.0s; animation-delay: 0.0s  }
+.ms2 .sk-spinner .sk-cube:nth-child(8) { -webkit-animation-delay: 0.1s; animation-delay: 0.1s  }
+.ms2 .sk-spinner .sk-cube:nth-child(9) { -webkit-animation-delay: 0.2s; animation-delay: 0.2s  }
+
+@-webkit-keyframes sk-scaleDelay {
+  0%, 70%, 100% { -webkit-transform:scale3D(1.0, 1.0, 1.0) }
+  35%           { -webkit-transform:scale3D(0.0, 0.0, 1.0) }
+}
+
+@keyframes sk-scaleDelay {
+  0%, 70%, 100% { -webkit-transform:scale3D(1.0, 1.0, 1.0); transform:scale3D(1.0, 1.0, 1.0) }
+  35%           { -webkit-transform:scale3D(1.0, 1.0, 1.0); transform:scale3D(0.0, 0.0, 1.0) }
+}
+
+</style><style>.ms2 .sk-double-bounce {
+  width: 27px;
+  height: 27px;
+
+  position: relative;
+}
+
+.ms2 .sk-double-bounce1, .ms2 .sk-double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.ms2 .sk-double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+</style><style>.ms2 .sk-folding-cube {
+  width: 27px;
+  height: 27px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.ms2 .sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1); 
+}
+.ms2 .sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+.ms2 .sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+.ms2 .sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+.ms2 .sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+.ms2 .sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.ms2 .sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s; 
+}
+.ms2 .sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  } 
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  }
+}
+</style><style>.ms2 .sk-pulse {
+  width: 27px;
+  height: 27px;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+</style><style>.ms2 .sk-rotating-plane {
+  width: 27px;
+  height: 27px;
+  background-color: #333;
+
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+</style><style>.ms2 .sk-three-bounce > div {
+  width: 18px;
+  height: 18px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.ms2 .sk-three-bounce .sk-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.ms2 .sk-three-bounce .sk-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+</style><style>.ms2 .sk-wandering-cubes {
+  width: 27px;
+  height: 27px;
+  position: relative;
+}
+
+.ms2 .sk-cube1, .ms2 .sk-cube2 {
+  background-color: #333;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.ms2 .sk-cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% { -webkit-transform: translateX(22px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(22px) translateY(22px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(22px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% {
+    /* Hack to make FF rotate in the right direction */
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+  } 50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+    -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+  } 75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  } 100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+</style><style>.ms2 .sk-wave {
+  width: 50px;
+  height: 27px;
+}
+
+.ms2 .sk-wave > div {
+  background-color: #333;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.ms2 .sk-wave .sk-rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.ms2 .sk-wave .sk-rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.ms2 .sk-wave .sk-rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.ms2 .sk-wave .sk-rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  } 20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+</style><style>.ms2 .sk-wordpress {
+  background: #333;
+  width: 27px;
+  height: 27px;
+  display: inline-block;
+  border-radius: 27px;
+  position: relative;
+  -webkit-animation: sk-inner-circle 1s linear infinite;
+  animation: sk-inner-circle 1s linear infinite;
+}
+
+.ms2 .sk-inner-circle {
+  display: block;
+  background: #fff;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 8px;
+  top: 5px;
+  left: 5px;
+}
+
+@-webkit-keyframes sk-inner-circle {
+  0% { -webkit-transform: rotate(0); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes sk-inner-circle {
+  0% { transform: rotate(0); -webkit-transform:rotate(0); }
+  100% { transform: rotate(360deg); -webkit-transform:rotate(360deg); }
+}
+
+</style><style>.ms2 .mapstore-filter input::-ms-clear,
+.ms2 .mapstore-filter input::-ms-reveal {
+  display: none;
+}
+</style><style>.ms2 .react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.ms2 .react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.ms2 .react-grid-item img {
+  pointer-events: none;
+  user-select: none;  
+}
+.ms2 .react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.ms2 .react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.ms2 .react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.ms2 .react-grid-item.dropping {
+  visibility: hidden;
+}
+
+.ms2 .react-grid-item.react-grid-placeholder {
+  background: red;
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.ms2 .react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.ms2 .react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.ms2 .react-resizable-hide > .react-resizable-handle {
+  display: none;
+}
+
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-w,
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-n,
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.ms2 .react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+</style><style>.ms2 .form-control-intl {
+    background-color: unset !important;
+}
+</style><style>.ms2 .gridcard {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: box-shadow 250ms;
+}
+
+.ms2 .gridcard:hover, .ms2 .gridcard:focus {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.ms2 .gridcard-title {
+    padding-left: 10px;
+    padding-top: 3px;
+    min-height: 40px;
+}
+.ms2 .gridcard-tools {
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.ms2 .gridcard-tools .spinner{
+    left: -8px
+}
+.ms2 .gridcard-tools .spinner div:before{
+    background-color: white
+}
+</style><style>.ms2 .swipe-header-left-button {
+    float: left;
+}
+
+.ms2 .swipe-header-right-button {
+    float: right;
+}
+</style><style>.ms2 #mapstore-login-menu {
+    text-align: right;
+}
+</style><style>.ms2 #mapstore-login-panel {
+    width: 300px;
+}
+.ms2 #mapstore-login-panel button {
+    float: right !important;
+}
+</style><style>.ms2 #mappreview-scalebox {
+    position: relative;
+    top: -36px;
+    width: 150px;
+    left: 10px;
+}
+
+.ms2 .print-error {
+    height: 100px;
+    color: #600;
+    background-color: #E8BABA;
+    border: solid #600 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.ms2 .print-error span, .ms2 .print-warning span {
+    display: inline-block;
+    max-height: 80px;
+    overflow: auto;
+    width: 100%;
+}
+.ms2 .print-warning {
+    height: 50px;
+    color: #660;
+    background-color: #E6E8BA;
+    border: solid #660 1px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.ms2 .print-preview-panel .spinner {
+    display: inline-block;
+}
+
+.ms2 .print-mappreview-refresh {
+    position: relative;
+    top: -83px;
+    right: -155px;
+    z-index: 1000;
+}
+.ms2 #mapstore-print-panel.modal-dialog {
+    z-index: 2000;
+}
+
+.ms2 #mapstore-print-panel .modal-body {
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
+
+.ms2 .mapstore-print-panel {
+    width: 850px;
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    zIndex: 100;
+}
+
+.ms2 .mapstore-print-preview-img-wrapper {
+    position: relative;
+    top: 0;
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+}
+
+.ms2 .mapstore-print-preview-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ms2 .mapstore-print-panel .form-inline label {
+    margin-right: 20px;
+}
+
+.ms2 .mapstore-print-panel .print-download {
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 34px;
+    border: solid 1px #CCC;
+    padding: 7px;
+    border-radius: 4px;
+    padding-right: 25px;
+    padding-left: 11px;
+    top: 2px;
+    position: relative;
+}
+
+.ms2 .print-layout .panel-title {
+    padding-left: 10px;
+}
+
+.ms2 .print-layout .panel-title a{
+    text-decoration: none;
+}
+
+.ms2 .print-layout .panel-title a:hover{
+    color: #d6d6d6;
+}
+
+.ms2 .print-legend-options .panel-title {
+    padding-left: 10px;
+}
+
+.ms2 .print-legend-options .panel-title a{
+    text-decoration: none;
+}
+
+.ms2 .print-legend-options .panel-title a:hover{
+    color: #d6d6d6;
+}
+
+
+@media (min-width: 992px) {
+    .ms2 #mapstore-print-panel {
+        width: 825px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ms2 #mapstore-print-panel {
+        width: 700px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ms2 #mapstore-print-panel {
+        width: 98%;
+    }
+}
+
+.ms2 #mapstore-print-panel .modal-body .print-mappreview-refresh {
+    top: -96px;
+}
+
+.ms2 #mapstore-print-panel .print-submit {
+    float: right;
+}
+
+@media (min-width: 768px) {
+    .ms2 #mapstore-print-panel input[type=radio] {
+        margin: 0 8px 0 20px;
+    }
+}
+
+.ms2 #mapstore-print-panel .print-map-preview {
+    margin-bottom: 15px;
+}
+
+.ms2 #mapstore-print-panel .panel-default {
+    border: none;
+}
+
+.ms2 #mapstore-print-panel .panel-heading .panel-title {
+    font-weight: bold;
+}
+
+.ms2 #mapstore-print-panel .panel-heading {
+    padding-left: 0;
+    background-color: transparent;
+}
+
+.ms2 #mapstore-print-panel .panel-body {
+    padding: 10px;
+}
+
+.ms2 #mapstore-print-panel .form-control {
+    padding: 0 10px;
+    height: 25px;
+}
+
+.ms2 #mapstore-print-panel .print-download {
+    margin-right: 10px;
+}
+
+.ms2 #mapstore-print-panel .print-legend-options .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+</style><style>
+.ms2 #mapstore-layer-settings {
+    min-width: 400px;
+}
+
+.ms2 .portal-dialog {
+    position: absolute;
+}
+
+@media all and (min-width: 635px) {
+    .ms2 .portal-dialog {
+        left: calc(50% - 315px);
+        top: 100px;
+        max-width: 630px;
+        background-color: #fff;
+    }
+}
+
+@media all and (max-width: 634px) {
+    .ms2 .portal-dialog {
+        width: 100%;
+    }
+}
+</style><style>
+.ms2 .page-maps .ms-home-description {
+    background-image: url(http://localhost:7080/mapstore/dist/web/client/product/assets/img/mapstore-header.jpg);
+}
+
+.ms2 .page-maps .mapstore-header {
+    background-image: url(http://localhost:7080/mapstore/dist/web/client/product/assets/img/mapstore-header.jpg);
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    top: -20px;
+}
+
+@media (min-width: 769px) {
+    .ms2 div#mapstore-maptype {
+        width: 300px;
+        margin-left: auto;
+        margin-bottom: 40px;
+    }
+}
+@media (max-width: 768px) {
+    .ms2 div#mapstore-maptype {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+     .ms2 #page-maps div.theme-switcher.form-group.form-group-sm {
+        width: 300px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .ms2 #page-maps div.theme-switcher.form-group.form-group-sm {
+        width: 100%;
+    }
+}
+</style><style>.ms2 #mapstore-globalspinner  {
+    margin: 0 !important;
+    width: 40px !important;
+    position:static !important;
+    border-radius: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ms2 #mapstore-globalspinner > .spinner {
+    margin: 0;
+}
+</style><style>/*viewer navbar */
+.ms2 .navbar-dx {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.ms2 .navbar-dx>ul {
+    padding: 0;
+}
+
+.ms2 .navbar-dx>ul>li {
+    float: left;
+    list-style: none;
+}
+
+.ms2 .navbar-dx .search-wrap .MapSearchBar {
+    right: 0;
+    top: 0;
+    left: 0;
+}
+
+.ms2 .navbar-dx .search-wrap .form-control,
+.ms2 .navbar-dx .search-wrap .form-control:focus {
+    border-right: 0;
+    box-shadow: none;
+}
+
+.ms2 .navbar-dx .search-wrap .MapSearchBar .input-group-addon {
+    border: 0;
+}
+
+.ms2 .navbar-dx .search-result-list {
+    left: 0;
+    max-height: none;
+}
+
+.ms2 .navbar-dx .dropdown-menu {
+    margin: 0;
+    padding-top: 0;
+}
+
+@media (min-width: 1200px) {
+    .ms2 .navbar-dx .search-wrap {
+        width: 500px;
+        height: 50px;
+    }
+}
+
+.ms2 .navbar-dx>* {
+    display: inline-block;
+}
+
+/* Page Navbar */
+.ms2 .navbar-home .dropdown {
+    float: right;
+}
+
+.ms2 .navbar-home .navbar-header {
+    margin-top: 7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+}
+</style><style>.ms2 #mapstore-burger-menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.ms2 .burger-menu-submenu {
+    display: none;
+    position: absolute;
+    left: -160px;
+    top: 0;
+    width: 160px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.ms2 .burger-menu-submenu li a {
+    display: block;
+    padding: 10px 15px;
+}
+
+.ms2 .burger-menu-submenu li a:hover {
+    text-decoration: none;
+}
+
+.ms2 #mapstore-burger-menu .dropdown-menu>li>a:hover>span>.burger-menu-submenu,
+.ms2 .burger-menu-submenu>li>a:hover>span>.burger-menu-submenu {
+    display: block;
+}
+
+.ms2 .burger-menu-submenu span {
+    overflow: hidden;
+}
+
+.ms2 #mapstore-navbar #mapstore-burger-menu {
+    position: relative;
+    float: right;
+    left: 0;
+}
+</style><style id="erd_scroll_detection_scrollbar_style">/* Created by the element-resize-detector library. */
+.erd_scroll_detection_container > div::-webkit-scrollbar { display: none; }
+
+.erd_scroll_detection_container_animation_active { -webkit-animation-duration: 0.1s; animation-duration: 0.1s; -webkit-animation-name: erd_scroll_detection_container_animation; animation-name: erd_scroll_detection_container_animation; }
+@-webkit-keyframes erd_scroll_detection_container_animation { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes erd_scroll_detection_container_animation { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }</style><style>.ms2 .overlay-spinner-container  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ms2 .overlay-spinner-container > div {
+    width: 80%;
+}
+
+.ms2 .overlay-spinner-label {
+    color: #fff;
+}
+
+.ms2 .overlay-spinner-container .spinner {
+    float: none;
+    clear: both;
+    margin: auto;
+    width: 52px;
+    height: 52px;
+}
+
+.ms2 .overlay-spinner-container .spinner .sk-circle:before {
+    background-color: #fff;
+}
+</style><style>/* Menu Button */
+.ms2 .drawer-menu-button {
+    position: absolute;
+    z-index:1000;
+    left: 30px;
+    top: 8px;
+    width:30px;
+    background: transparent;
+    outline: none;
+    border: transparent;
+    font-size: 14px;
+}
+
+.ms2 .drawer-menu-button:hover {
+    background: transparent;
+}
+
+.ms2 #drawer-menu-button:active{
+    box-shadow: none;
+}
+
+.ms2 #mapstore-drawermenu > div > div:nth-child(2) {
+    display: none;
+}
+
+.ms2 .nav-content #background-switcher .thumbnail {
+    border-radius: 0 !important;
+    margin-bottom: 40px;
+    width: 220px !important;
+}
+.ms2 .nav-content #background-switcher .thumbnail img {
+    border-radius: 0 !important;
+    height: 90px;
+    width: 220px !important;
+}
+
+.ms2 .nav-content #background-switcher .thumbnail .caption {
+    font-size: 14px !important;
+    text-align: left !important;
+    top: -20px !important;
+    position: absolute !important;
+}
+
+.ms2 .nav-content #background-switcher {
+    margin-top: 10px;
+}
+
+.ms2 #mapstore-drawermenu .panel {
+    border: none;
+    box-shadow: none;
+}
+
+.ms2 div.nav-menu {
+    -webkit-transform:   translate3d(300px, 0, 0);
+    -moz-transform: 	 translate3d(300px, 0, 0);
+    -ms-transform: 		 translate3d(300px, 0, 0);
+    -o-transform: 		 translate3d(300px, 0, 0);
+    box-shadow: 2px 0px 15px #A7A7A7;
+}
+
+.ms2 .nav-menu  .navHeader {
+    height: 50px;
+}
+.ms2 .nav-menu > .nav-content .navHeader .title{
+    font-size: 16px;
+    position: absolute;
+    margin: 13px;
+    font-weight: bold;
+}
+.ms2 .nav-content  .section {
+    margin-bottom: 2px;
+}
+.ms2 .nav-content  .section .sectionHeader{
+    padding: 5px;
+    cursor: pointer;
+}
+.ms2 .nav-content .section .sectionHeader>.glyphicon{
+    /* Firefox */
+    -moz-transition: all .3s ease;
+    /* WebKit */
+    -webkit-transition: all .3s ease;
+    /* Opera */
+    -o-transition: all .3s ease;
+    /* Standard */
+    transition: all .3s ease;
+}
+.ms2 .nav-content  .section .sectionTitle{
+    padding-left: 10px;
+
+}
+.ms2 .nav-content  .section .sectionContent{
+    -moz-transition: max-height .3s ease;
+    -webkit-transition: max-height .3s ease;
+    -o-transition: max-height .3s ease;
+    transition: max-height .3s ease;
+
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,.5);
+    padding: 5px;
+}
+
+.ms2 .navButtons {
+    float: right;
+}
+
+.ms2 #drawer-menu-button {
+     position: absolute;
+}
+</style><style>
+.ms2 .background-preview-button-label {
+    position: absolute;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    -webkit-transition: all 0.0s;
+    -moz-transition: all 0.0s;
+    -o-transition: all 0.0s;
+    transition: all 0.0s;
+
+}
+
+.ms2 .background-preview-button-label div {
+    overflow: hidden;
+    opacity: 0.8;
+    box-shadow: 0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+    -webkit-box-shadow:  0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+    -moz-box-shadow:  0 7px 14px rgba(0,0,0,0.12), 0 5px 5px rgba(0,0,0,0.11);
+}
+
+.ms2 .background-preview-button-container {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.ms2 .background-preview-button-frame {
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.ms2 .background-preview-button-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+.ms2 .background-preview-button-container:hover {
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.ms2 .background-preview-button-container:active {
+    opacity: 0.6;
+}
+</style><style>
+.ms2 .background-preview-icon-frame {
+    overflow: hidden;
+}
+
+.ms2 .background-preview-icon-frame img{
+    width: 100%;
+    height: 100%;
+}
+
+.ms2 .background-preview-icon-container-horizontal {
+    cursor: pointer;
+    float: left;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.ms2 .background-preview-icon-container-horizontal:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.ms2 .background-preview-icon-container-horizontal:active {
+    opacity: 0.6;
+}
+
+.ms2 .background-preview-icon-container-horizontal.disabled-icon {
+    cursor: not-allowed;
+    float: left;
+    opacity: 0.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.ms2 .background-preview-icon-container-vertical {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.ms2 .background-preview-icon-container-vertical:hover {
+    cursor: pointer;
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.ms2 .background-preview-icon-container-vertical:active {
+    opacity: 0.6;
+}
+
+.ms2 .background-preview-icon-container-vertical.disabled-icon {
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -moz-box-shadow:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+</style><style>.ms2 #locate-btn {
+    position: absolute;
+    z-index: 1000;
+    right: 10px;
+    bottom: 150px;
+}
+
+.ms2 #mapstore-toolbar #locate-btn {
+    position: static;
+}
+</style><style>.ms2 .mapErrorMessage {
+    font-size: 16px;
+    color: red;
+}
+</style><style>.ms2 #mapstore-about {
+    position: fixed;
+    top: -100px;
+    left: calc(50% - 250px);
+    width: 500px;
+}
+</style><style></style><style>
+.ms2 #mapstore-settings .btn-group {
+    width: auto;
+}
+
+.ms2 #mapstore-settings .modal-body #mapstore-mousepositionsettings button {
+    float: none;
+    margin-left: 40%;
+}
+
+.ms2 #mapstore-settings .modal-body #mapstore-mousepositionsettings select {
+    float: none;
+    margin-left: 40%;
+}
+
+.ms2 #mapstore-settings .modal-body .form-group {
+    margin-top: 15px;
+    border-top: solid 1px #EEE;
+    padding-top: 10px;
+}
+</style><style> .ms2 #mapstore-mouseposition {
+    z-index: 10;
+    top: -10px;
+    right: 45%;
+    position: absolute;
+    margin: 8px;
+    text-shadow: -1px -1px 1px #000,
+                  1px -1px 1px #000,
+                 -1px  1px 1px #000,
+                  1px  1px 1px #000;
+}
+
+.ms2 #mapstore-mouseposition .label {
+    max-width: 350px;
+    min-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+
+}
+
+.ms2 #mapstore-mouseposition .label-info {
+    background-color:rgba(91,192,222,0);
+    color: white;
+    font-size: 110%;
+}
+
+.ms2 #mapstore-mouseposition h5 {
+    display: inline-block;
+}
+
+
+.ms2 #mapstore-mousepositionsettings .form-group {
+    margin-bottom: 0 !important;
+}
+
+.ms2 #mapstore-mousepositionsettings select, .ms2 #mapstore-mousepositionsettings button {
+    width: 60% !important;
+    float: right;
+    height: 35px;
+}
+
+.ms2 #mapstore-mousepositionsettings label {
+    width: 100% !important;
+}
+
+
+.ms2 #mapstore-mouseposition .label-info {
+    white-space: normal;
+    color: black;
+    font-size: 110%;
+    padding: 0;
+}
+
+.ms2 #mapstore-mouseposition {
+    bottom: 5px;
+    right: 264px;
+    top: auto;
+    margin: 0;
+    text-shadow: none;
+    background-color: white;
+    width: 160px;
+    height: 46px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+.ms2 #mapstore-mouseposition h5 {
+    margin-top: 5px;
+}
+
+.ms2 .mouseposition-separator {
+    display: block;
+}
+
+.ms2 #mapstore-mouseposition-mobile {
+        bottom: 25px;
+        right: 30px;
+        z-index: 10;
+        position: absolute;
+        text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000;
+    }
+
+.ms2 #mapstore-mouseposition-mobile .label {
+        display: inline-block;
+        max-width: 280px;
+        min-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+}
+
+.ms2 #mapstore-mouseposition-mobile .label-info {
+        background-color:rgba(91,192,222,0);
+        color: white;
+        font-size: 90%;
+}
+
+.ms2 #mapstore-mouseposition .form-group {
+    float: right;
+}
+
+.ms2 #mapstore-mouseposition .form-group .control-label {
+    display: none;
+}
+
+.ms2 #mapstore-mouseposition .form-group select {
+    width: 90px;
+    font-size: 11px;
+    padding: 2px;
+}
+</style><style>.ms2 .mapToolbar .mapstore-tb-helpbadge {
+    display: block;
+    background-color: #777;
+    position: absolute;
+    z-index: 1000;
+    top : -10px;
+    left: -10px;
+}
+
+
+.ms2 #helpbadge-zoomToMaxExtent {
+    display: inline;
+    position: absolute;
+    left: 34px;
+    top: 72px;
+    z-index: 100000
+}
+
+.ms2 #helpbadge-scaleBox {
+    display: inline;
+    position: absolute;
+    left: 116px;
+    bottom: 48px;
+    z-index: 100000
+}
+
+.ms2 #helpbadge-seachBar {
+    display: inline;
+    position: absolute;
+    left: 46px;
+    top: 10px;
+    z-index: 100000
+}
+
+
+.ms2 .btn .badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.ms2 .themed .btn .badge {
+    top: -35px;
+    left: -50px;
+}
+
+.ms2 .badge {
+    cursor: pointer;
+}
+
+.ms2 #helpbadge-scaleBox {
+    left: 0 !important;
+}
+
+.ms2 #mapstore-navbar #helpbadge-search-help {
+    position: absolute;
+    left: -10px;
+    bottom: -8px;
+    z-index: 1;
+}
+</style><style>.ms2 #mapstore-scalebox {
+    /*z-index: 10;
+    bottom: 6px;
+    left: -2px;
+    position: absolute;
+    margin: 8px;
+    width: 148px;*/
+}
+
+.ms2 #mapstore-scalebox-container {
+    /*z-index: 10;
+    bottom: -16px;
+    right: 55px;
+    left: auto;
+    position: absolute;
+    margin: 8px;
+    width: 148px;*/
+}
+</style><style>.ms2 #mapstore-zoomtomaxextent {
+    z-index: 1;
+    position: relative;
+}
+</style><style>.ms2 #mapstore-globalspinner  {
+    width: 28px;
+    height: 28px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    border: 1px solid #999;
+    z-index: 10;
+    top: 90px;
+    left: 2px;
+    position: absolute;
+    margin: 8px;
+}
+
+.ms2 #mapstore-globalspinner .circle-wrapper {
+    margin-left: 2px;
+    margin-top: 1px;
+}
+
+.ms2 #mapstore-toolbar #mapstore-globalspinner {
+    position: static;
+    width: 42px;
+    margin: 0;
+    margin-top: 0;
+    height: 35px;
+    box-shadow: none;
+}
+
+.ms2 .ms2-loading .sk-circle-wrapper {
+     width: 30px;
+     height: 30px;
+ }
+</style><style>.ms2 #zoomin-btn, .ms2 #zoomout-btn {
+    z-index: 1;
+    position: relative;
+}
+</style><style>.ms2 .joyride-beacon{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;height:36px;position:relative;width:36px;z-index:1500}.ms2 .joyride-beacon:active,.ms2 .joyride-beacon:focus,.ms2 .joyride-beacon:hover{outline:none}.ms2 .joyride-beacon__inner{-webkit-animation:joyride-beacon-inner 1.2s infinite ease-in-out;animation:joyride-beacon-inner 1.2s infinite ease-in-out;background-color:#f04;border-radius:50%;display:block;height:50%;left:50%;opacity:.7;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);width:50%}.ms2 .joyride-beacon__outer{-webkit-animation:joyride-beacon-outer 1.2s infinite ease-in-out;animation:joyride-beacon-outer 1.2s infinite ease-in-out;background-color:rgba(255,0,68,.2);border:2px solid #f04;border-radius:50%;box-sizing:border-box;display:block;height:100%;left:0;opacity:.9;position:absolute;top:0;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transform-origin:center;-ms-transform-origin:center;transform-origin:center;width:100%}.ms2 .joyride-overlay{bottom:0;left:0;position:absolute;right:0;top:0;z-index:1500}.ms2 .joyride-hole{border-radius:4px;box-shadow:0 0 0 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5);position:absolute}.ms2 .joyride-hole.safari{box-shadow:0 0 999px 9999px rgba(0,0,0,.5),0 0 15px rgba(0,0,0,.5)}.ms2 .joyride-tooltip{background-color:#fff;border-radius:4px;color:#555;cursor:default;-webkit-filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));filter:drop-shadow(-1px -2px 3px rgba(0,0,0,.3)) drop-shadow(1px 2px 3px rgba(0,0,0,.3));opacity:0;padding:20px;pointer-events:auto;-webkit-transform:translateZ(0);transform:translateZ(0);width:290px;z-index:1510}.ms2 .joyride-tooltip--animate{-webkit-animation:joyride-tooltip .4s forwards;animation:joyride-tooltip .4s forwards;-webkit-animation-timing-function:cubic-bezier(0,1.05,.55,1.18);animation-timing-function:cubic-bezier(0,1.05,.55,1.18)}.ms2 .joyride-tooltip__triangle{background-repeat:no-repeat;position:absolute}.ms2 .joyride-tooltip.bottom,.ms2 .joyride-tooltip.bottom-left,.ms2 .joyride-tooltip.bottom-right{margin-top:18px}.ms2 .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.ms2 .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.ms2 .joyride-tooltip.bottom .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M36 18L18 0 0 18z'/%3E%3C/svg%3E");height:18px;left:50%;top:-16px;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.ms2 .joyride-tooltip.top,.ms2 .joyride-tooltip.top-left,.ms2 .joyride-tooltip.top-right{margin-bottom:18px}.ms2 .joyride-tooltip.top-left .joyride-tooltip__triangle,.ms2 .joyride-tooltip.top-right .joyride-tooltip__triangle,.ms2 .joyride-tooltip.top .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='36' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 0l18 18L36 0z'/%3E%3C/svg%3E");bottom:-16px;height:18px;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:36px}.ms2 .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.ms2 .joyride-tooltip.top-left .joyride-tooltip__triangle{left:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.ms2 .joyride-tooltip.bottom-left .joyride-tooltip__triangle,.ms2 .joyride-tooltip.top-left .joyride-tooltip__triangle{left:2%}}.ms2 .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.ms2 .joyride-tooltip.top-right .joyride-tooltip__triangle{left:auto;right:3%;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}@media screen and (min-width:480px){.ms2 .joyride-tooltip.bottom-right .joyride-tooltip__triangle,.ms2 .joyride-tooltip.top-right .joyride-tooltip__triangle{right:2%}}.ms2 .joyride-tooltip.left{margin-right:18px}.ms2 .joyride-tooltip.left .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M0 36l18-18L0 0z'/%3E%3C/svg%3E");height:36px;right:-16px;width:18px}.ms2 .joyride-tooltip.right{margin-left:18px}.ms2 .joyride-tooltip.right .joyride-tooltip__triangle{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='18' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M18 0L0 18l18 18z'/%3E%3C/svg%3E");height:36px;left:-16px;width:18px}.ms2 .joyride-tooltip__close{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.117.323L8.044 6.398 2.595.323a1.105 1.105 0 0 0-1.562 1.562L6.482 7.96.323 14.119a1.105 1.105 0 0 0 1.562 1.562L7.96 9.608l5.449 6.073a1.103 1.103 0 1 0 1.56-1.562L9.517 8.046l6.159-6.161a1.103 1.103 0 1 0-1.56-1.562z' fill='rgba(85,85,85,0.5)'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;height:12px;position:absolute;right:10px;text-decoration:none;top:10px;width:12px;z-index:10;display:block}.ms2 .joyride-tooltip__close:active,.ms2 .joyride-tooltip__close:focus,.ms2 .joyride-tooltip__close:hover{outline:none}.ms2 .joyride-tooltip__close:focus,.ms2 .joyride-tooltip__close:hover{color:rgba(60,60,60,.5);outline:none}.ms2 .joyride-tooltip__close--header{right:20px;top:20px}.ms2 .joyride-tooltip__header{border-bottom:1px solid #f04;color:#555;font-size:20px;padding-bottom:6px;padding-right:18px;position:relative}.ms2 .joyride-tooltip__header~.joyride-tooltip__main{padding:12px 0 18px}.ms2 .joyride-tooltip__main{font-size:16px;padding-bottom:18px;padding-right:18px}.ms2 .joyride-tooltip__footer{text-align:right}.ms2 .joyride-tooltip__button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;cursor:pointer;display:inline-block;line-height:1;padding:0}.ms2 .joyride-tooltip__button:active,.ms2 .joyride-tooltip__button:focus,.ms2 .joyride-tooltip__button:hover{outline:none}.ms2 .joyride-tooltip__button--primary{background-color:#f04;border-radius:4px;color:#fff;padding:6px 12px;transition:background-color .2s ease-in-out}.ms2 .joyride-tooltip__button--primary:active,.ms2 .joyride-tooltip__button--primary:focus,.ms2 .joyride-tooltip__button--primary:hover{background-color:#ff1f5a;color:#fff}.ms2 .joyride-tooltip__button--secondary{color:#f04;margin-right:10px}.ms2 .joyride-tooltip__button--skip{color:#ccc;float:left;margin-right:10px}.ms2 .joyride-tooltip--standalone .joyride-tooltip__main{padding-bottom:0}.ms2 .joyride-tooltip--standalone .joyride-tooltip__footer{display:none}@media screen and (min-width:480px){.ms2 .joyride-tooltip{width:360px}}@media screen and (min-width:960px){.ms2 .joyride-tooltip{width:450px}}@-webkit-keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@keyframes joyride-tooltip{0%{-webkit-transform:scale(.1);transform:scale(.1)}to{opacity:1;-webkit-transform:perspective(1px) scale(1);transform:perspective(1px) scale(1)}}@-webkit-keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@keyframes joyride-beacon-inner{20%{opacity:.9}90%{opacity:.7}}@-webkit-keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}@keyframes joyride-beacon-outer{0%{-webkit-transform:scale(1);transform:scale(1)}45%{opacity:.7;-webkit-transform:scale(.75);transform:scale(.75)}to{opacity:.9;-webkit-transform:scale(1);transform:scale(1)}}</style><style>/**
+ * Copyright 2017, GeoSolutions Sas.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.ms2 .joyride-hole {
+    box-shadow: 0 0 0 9999px rgba(0,0,0,.75), 0 0 15px rgba(0,0,0,.75);
+}
+
+.ms2 .joyride-tooltip__button--secondary{
+    color: #888;
+}
+
+.ms2 .joyride-tooltip__header {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.ms2 .joyride-tooltip__main {
+    font-size: 0.9em;
+}
+
+.ms2 .tutorial-presentation-position{
+    position: fixed;
+    width: 100%;
+    left: 0;
+}
+
+.ms2 #tutorial-intro-checkbox-container {
+    overflow: hidden;
+    margin: 5px 0 5px 0;
+    border-top: 1px dashed #777;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.ms2 #tutorial-intro-checkbox {
+    margin: 5px 10px 0 0;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
+</style><style>.ms2 div.record-grid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.ms2 div.record-grid .record-item{
+    height: auto;
+}
+.ms2 div.record-grid .record-item .panel-body{
+    padding: 0;
+}
+
+.ms2 #mapstore-catalog-panel button.search-button {
+    margin-bottom: 10px;
+}
+
+.ms2 #mapstore-catalog-panel .record-item {
+    min-height: 150px;
+}
+
+/*
+!important is needed because the library we used
+use inline style which cannot be overridden unless
+we use !important*/
+@media (max-width: 500px) {
+    .ms2 div .catalog-sidebar.nav-menu {
+        width: 100% !important
+    }
+}
+
+.ms2 #mapstore-metadata-explorer{
+    margin-bottom: 0
+}
+</style><style>.ms2 #navigationBar #locate-btn {
+    position: static;
+}
+</style><style>#mapstore-sidebar-menu-container {
+  z-index: 1030;
+  position: absolute;
+  background: inherit;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+  z-index: 10;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-tray,
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn,
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-group .btn {
+  border-bottom: 0;
+  height: 40px;
+  width: 40px;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-tray span:not(.glyphicon),
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn span:not(.glyphicon),
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu > .btn-group .btn span:not(.glyphicon) {
+  display: none;
+}
+#mapstore-sidebar-menu-container #mapstore-sidebar-menu .snapshot-panel {
+  position: absolute;
+  right: 40px;
+  top: 60px;
+  background: #ffffffab;
+}
+#mapstore-sidebar-menu-container.fullHeightSideBar {
+  position: relative;
+  max-height: 100% !important;
+}
+</style><style>.ms2 .option-icon {
+    margin-right: 15px;
+}
+.ms2 #measure-result-panel button {
+    padding: 14px;
+}
+.ms2 #measure-result-panel .glyphicon {
+    margin: 0 15px 0 0;
+}
+.ms2 #measure-result-panel .option-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    vertical-align: middle!important;
+    vertical-align: -webkit-baseline-middle!important;
+}
+.ms2 #measure-result-panel .option-icon {
+    font-size: 32px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    vertical-align: middle!important;
+    vertical-align: -webkit-baseline-middle!important;
+    vertical-align: -moz-middle-with-baseline !important;
+}
+
+.ms2 .measure-value {
+    /* this is necessary to show the uom list correctly,
+     * otherwise the list will be hidden since it exceeds the modal
+     */
+    font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+}
+
+.ms2 #measure .modal-body > div[role="body"] > div {
+    overflow: visible!important;
+}
+</style><style>.ms2 .rdw-option-wrapper {
+  border: 1px solid #F1F1F1;
+  padding: 5px;
+  min-width: 25px;
+  height: 20px;
+  border-radius: 2px;
+  margin: 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.ms2 .rdw-option-wrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.ms2 .rdw-option-wrapper:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.ms2 .rdw-option-active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.ms2 .rdw-option-disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.ms2 .rdw-dropdown-wrapper {
+  height: 30px;
+  background: white;
+  cursor: pointer;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  margin: 0 3px;
+  text-transform: capitalize;
+  background: white;
+}
+.ms2 .rdw-dropdown-wrapper:focus {
+  outline: none;
+}
+.ms2 .rdw-dropdown-wrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+  background-color: #FFFFFF;
+}
+.ms2 .rdw-dropdown-wrapper:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.ms2 .rdw-dropdown-carettoopen {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  border-top: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.ms2 .rdw-dropdown-carettoclose {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  border-bottom: 6px solid black;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.ms2 .rdw-dropdown-selectedtext {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  padding: 0 5px;
+}
+.ms2 .rdw-dropdown-optionwrapper {
+  z-index: 100;
+  position: relative;
+  border: 1px solid #F1F1F1;
+  width: 98%;
+  background: white;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.ms2 .rdw-dropdown-optionwrapper:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+  background-color: #FFFFFF;
+}
+
+.ms2 .rdw-dropdownoption-default {
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+.ms2 .rdw-dropdownoption-highlighted {
+  background: #F1F1F1;
+}
+.ms2 .rdw-dropdownoption-active {
+  background: #f5f5f5;
+}
+.ms2 .rdw-dropdownoption-disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.ms2 .rdw-inline-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-inline-dropdown {
+  width: 50px;
+}
+.ms2 .rdw-inline-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.ms2 .rdw-block-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-block-dropdown {
+  width: 110px;
+}
+
+.ms2 .rdw-fontsize-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-fontsize-dropdown {
+  min-width: 40px;
+}
+.ms2 .rdw-fontsize-option {
+  display: flex;
+  justify-content: center;
+}
+
+.ms2 .rdw-fontfamily-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-fontfamily-dropdown {
+  width: 115px;
+}
+.ms2 .rdw-fontfamily-placeholder {
+  white-space: nowrap;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ms2 .rdw-fontfamily-optionwrapper {
+  width: 140px;
+}
+
+.ms2 .rdw-list-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-list-dropdown {
+  width: 50px;
+  z-index: 90;
+}
+.ms2 .rdw-list-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.ms2 .rdw-text-align-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-text-align-dropdown {
+  width: 50px;
+  z-index: 90;
+}
+.ms2 .rdw-text-align-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.ms2 .rdw-right-aligned-block {
+  text-align: right;
+}
+.ms2 .rdw-left-aligned-block {
+  text-align: left !important;
+}
+.ms2 .rdw-center-aligned-block {
+  text-align: center !important;
+}
+.ms2 .rdw-justify-aligned-block {
+  text-align: justify !important;
+}
+.ms2 .rdw-right-aligned-block > div {
+  display: inline-block;
+}
+.ms2 .rdw-left-aligned-block > div {
+  display: inline-block;
+}
+.ms2 .rdw-center-aligned-block > div {
+  display: inline-block;
+}
+.ms2 .rdw-justify-aligned-block > div {
+  display: inline-block;
+}
+
+.ms2 .rdw-colorpicker-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.ms2 .rdw-colorpicker-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 175px;
+  height: 175px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.ms2 .rdw-colorpicker-modal-header {
+  display: flex;
+  padding-bottom: 5px;
+}
+.ms2 .rdw-colorpicker-modal-style-label {
+  font-size: 15px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 10px 5px;
+}
+.ms2 .rdw-colorpicker-modal-style-label-active {
+  border-bottom: 2px solid #0a66b7;
+}
+.ms2 .rdw-colorpicker-modal-options {
+  margin: 5px auto;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.ms2 .rdw-colorpicker-cube {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #F1F1F1;
+}
+.ms2 .rdw-colorpicker-option {
+  margin: 3px;
+  padding: 0;
+  min-height: 20px;
+  border: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  box-shadow: 1px 2px 1px #BFBDBD inset;
+}
+.ms2 .rdw-colorpicker-option:hover {
+  box-shadow: 1px 2px 1px #BFBDBD;
+}
+.ms2 .rdw-colorpicker-option:active {
+  box-shadow: -1px -2px 1px #BFBDBD;
+}
+.ms2 .rdw-colorpicker-option-active {
+  box-shadow: 0px 0px 2px 2px #BFBDBD;
+}
+
+.ms2 .rdw-link-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.ms2 .rdw-link-dropdown {
+  width: 50px;
+}
+.ms2 .rdw-link-dropdownOption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.ms2 .rdw-link-dropdownPlaceholder {
+  margin-left: 8px;
+}
+.ms2 .rdw-link-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  height: 205px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.ms2 .rdw-link-modal-label {
+  font-size: 15px;
+}
+.ms2 .rdw-link-modal-input {
+  margin-top: 5px;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  height: 25px;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+.ms2 .rdw-link-modal-input:focus {
+  outline: none;
+}
+.ms2 .rdw-link-modal-buttonsection {
+  margin: 0 auto;
+}
+.ms2 .rdw-link-modal-target-option {
+  margin-bottom: 20px;
+}
+.ms2 .rdw-link-modal-target-option > span {
+  margin-left: 5px;
+}
+.ms2 .rdw-link-modal-btn {
+  margin-left: 10px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.ms2 .rdw-link-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.ms2 .rdw-link-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.ms2 .rdw-link-modal-btn:focus {
+  outline: none !important;
+}
+.ms2 .rdw-link-modal-btn:disabled {
+  background: #ece9e9;
+}
+.ms2 .rdw-link-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.ms2 .rdw-history-dropdown {
+  width: 50px;
+}
+
+.ms2 .rdw-embedded-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.ms2 .rdw-embedded-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  height: 180px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  justify-content: space-between;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.ms2 .rdw-embedded-modal-header {
+  font-size: 15px;
+  display: flex;
+}
+.ms2 .rdw-embedded-modal-header-option {
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ms2 .rdw-embedded-modal-header-label {
+  width: 95px;
+  border: 1px solid #f1f1f1;
+  margin-top: 5px;
+  background: #6EB8D4;
+  border-bottom: 2px solid #0a66b7;
+}
+.ms2 .rdw-embedded-modal-link-section {
+  display: flex;
+  flex-direction: column;
+}
+.ms2 .rdw-embedded-modal-link-input {
+  width: 88%;
+  height: 35px;
+  margin: 10px 0;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.ms2 .rdw-embedded-modal-link-input-wrapper {
+  display: flex;
+  align-items: center;
+}
+.ms2 .rdw-embedded-modal-link-input:focus {
+  outline: none;
+}
+.ms2 .rdw-embedded-modal-btn-section {
+  display: flex;
+  justify-content: center;
+}
+.ms2 .rdw-embedded-modal-btn {
+  margin: 0 3px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.ms2 .rdw-embedded-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.ms2 .rdw-embedded-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.ms2 .rdw-embedded-modal-btn:focus {
+  outline: none !important;
+}
+.ms2 .rdw-embedded-modal-btn:disabled {
+  background: #ece9e9;
+}
+.ms2 .rdw-embedded-modal-size {
+  align-items: center;
+  display: flex;
+  margin: 8px 0;
+  justify-content: space-between;
+}
+.ms2 .rdw-embedded-modal-size-input {
+  width: 80%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.ms2 .rdw-embedded-modal-size-input:focus {
+  outline: none;
+}
+
+.ms2 .rdw-emoji-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.ms2 .rdw-emoji-modal {
+  overflow: auto;
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 235px;
+  height: 180px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.ms2 .rdw-emoji-icon {
+  margin: 2.5px;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ms2 .rdw-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.ms2 .rdw-spinner > div {
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+.ms2 .rdw-spinner .rdw-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.ms2 .rdw-spinner .rdw-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.ms2 .rdw-image-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+.ms2 .rdw-image-modal {
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 235px;
+  border: 1px solid #F1F1F1;
+  padding: 15px;
+  border-radius: 2px;
+  z-index: 100;
+  background: white;
+  box-shadow: 3px 3px 5px #BFBDBD;
+}
+.ms2 .rdw-image-modal-header {
+  font-size: 15px;
+  margin: 10px 0;
+  display: flex;
+}
+.ms2 .rdw-image-modal-header-option {
+  width: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ms2 .rdw-image-modal-header-label {
+  width: 80px;
+  background: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  margin-top: 5px;
+}
+.ms2 .rdw-image-modal-header-label-highlighted {
+  background: #6EB8D4;
+  border-bottom: 2px solid #0a66b7;
+}
+.ms2 .rdw-image-modal-upload-option {
+  width: 100%;
+  color: gray;
+  cursor: pointer;
+  display: flex;
+  border: none;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+  outline: 2px dashed gray;
+  outline-offset: -10px;
+  margin: 10px 0;
+  padding: 9px 0;
+}
+.ms2 .rdw-image-modal-upload-option-highlighted {
+  outline: 2px dashed #0a66b7;
+}
+.ms2 .rdw-image-modal-upload-option-label {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.ms2 .rdw-image-modal-upload-option-label span{
+  padding: 0 20px;
+}
+.ms2 .rdw-image-modal-upload-option-image-preview {
+  max-width: 100%;
+  max-height: 200px;
+}
+.ms2 .rdw-image-modal-upload-option-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.ms2 .rdw-image-modal-url-section {
+  display: flex;
+  align-items: center;
+}
+.ms2 .rdw-image-modal-url-input {
+  width: 90%;
+  height: 35px;
+  margin: 15px 0 12px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.ms2 .rdw-image-modal-btn-section {
+  margin: 10px auto 0;
+}
+.ms2 .rdw-image-modal-url-input:focus {
+  outline: none;
+}
+.ms2 .rdw-image-modal-btn {
+  margin: 0 5px;
+  width: 75px;
+  height: 30px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  cursor: pointer;
+  background: white;
+  text-transform: capitalize;
+}
+.ms2 .rdw-image-modal-btn:hover {
+  box-shadow: 1px 1px 0px #BFBDBD;
+}
+.ms2 .rdw-image-modal-btn:active {
+  box-shadow: 1px 1px 0px #BFBDBD inset;
+}
+.ms2 .rdw-image-modal-btn:focus {
+  outline: none !important;
+}
+.ms2 .rdw-image-modal-btn:disabled {
+  background: #ece9e9;
+}
+.ms2 .rdw-image-modal-spinner {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.ms2 .rdw-image-modal-alt-input {
+  width: 70%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.ms2 .rdw-image-modal-alt-input:focus {
+  outline: none;
+}
+.ms2 .rdw-image-modal-alt-lbl {
+  font-size: 12px;
+}
+.ms2 .rdw-image-modal-size {
+  align-items: center;
+  display: flex;
+  margin: 8px 0;
+  justify-content: space-between;
+}
+.ms2 .rdw-image-modal-size-input {
+  width: 40%;
+  height: 20px;
+  border: 1px solid #F1F1F1;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.ms2 .rdw-image-modal-size-input:focus {
+  outline: none;
+}
+.ms2 .rdw-image-mandatory-sign {
+  color: red;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.ms2 .rdw-remove-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+  flex-wrap: wrap
+}
+
+.ms2 .rdw-history-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap
+}
+.ms2 .rdw-history-dropdownoption {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.ms2 .rdw-history-dropdown {
+  width: 50px;
+}
+
+.ms2 .rdw-link-decorator-wrapper {
+  position: relative;
+}
+.ms2 .rdw-link-decorator-icon {
+  position: absolute;
+  left: 40%;
+  top: 0;
+  cursor: pointer;
+  background-color: white;
+}
+
+.ms2 .rdw-mention-link {
+  text-decoration: none;
+  color: #1236ff;
+  background-color: #f0fbff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.ms2 .rdw-suggestion-wrapper {
+  position: relative;
+}
+.ms2 .rdw-suggestion-dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F1F1F1;
+  min-width: 100px;
+  max-height: 150px;
+  overflow: auto;
+  background: white;
+  z-index: 100;
+}
+.ms2 .rdw-suggestion-option {
+  padding: 7px 5px;
+  border-bottom: 1px solid #f1f1f1;
+}
+.ms2 .rdw-suggestion-option-active {
+  background-color: #F1F1F1;
+}
+
+.ms2 .rdw-hashtag-link {
+  text-decoration: none;
+  color: #1236ff;
+  background-color: #f0fbff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+.ms2 .rdw-image-alignment-options-popup {
+  position: absolute;
+  background: white;
+  display: flex;
+  padding: 5px 2px;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  width: 105px;
+  cursor: pointer;
+  z-index: 100;
+}
+.ms2 .rdw-alignment-option-left {
+  justify-content: flex-start;
+}
+.ms2 .rdw-image-alignment-option {
+  height: 15px;
+  width: 15px;
+  min-width: 15px;
+}
+.ms2 .rdw-image-alignment {
+  position: relative;
+}
+.ms2 .rdw-image-imagewrapper {
+  position: relative;
+}
+.ms2 .rdw-image-center {
+  display: flex;
+  justify-content: center;
+}
+.ms2 .rdw-image-left {
+  display: flex;
+}
+.ms2 .rdw-image-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.ms2 .rdw-image-alignment-options-popup-right {
+  right: 0;
+}
+
+.ms2 .rdw-editor-main {
+  height: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.ms2 .rdw-editor-toolbar {
+  padding: 6px 5px 0;
+  border-radius: 2px;
+  border: 1px solid #F1F1F1;
+  display: flex;
+  justify-content: flex-start;
+  background: white;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin-bottom: 5px;
+  user-select: none;
+}
+.ms2 .public-DraftStyleDefault-block {
+  margin: 1em 0;
+}
+.ms2 .rdw-editor-wrapper:focus {
+  outline: none;
+}
+.ms2 .rdw-editor-wrapper {
+  box-sizing: content-box;
+}
+.ms2 .rdw-editor-main blockquote {
+  border-left: 5px solid #f1f1f1;
+  padding-left: 5px;
+}
+.ms2 .rdw-editor-main pre {
+  background: #f1f1f1;
+  border-radius: 3px;
+  padding: 1px 10px;
+}
+/**
+ * Draft v0.9.1
+ *
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+.ms2 .DraftEditor-editorContainer,.ms2 .DraftEditor-root,.ms2 .public-DraftEditor-content{height:inherit;text-align:initial}.ms2 .public-DraftEditor-content[contenteditable=true]{-webkit-user-modify:read-write-plaintext-only}.ms2 .DraftEditor-root{position:relative}.ms2 .DraftEditor-editorContainer{background-color:rgba(255,255,255,0);border-left:.1px solid transparent;position:relative;z-index:1}.ms2 .public-DraftEditor-block{position:relative}.ms2 .DraftEditor-alignLeft .public-DraftStyleDefault-block{text-align:left}.ms2 .DraftEditor-alignLeft .public-DraftEditorPlaceholder-root{left:0;text-align:left}.ms2 .DraftEditor-alignCenter .public-DraftStyleDefault-block{text-align:center}.ms2 .DraftEditor-alignCenter .public-DraftEditorPlaceholder-root{margin:0 auto;text-align:center;width:100%}.ms2 .DraftEditor-alignRight .public-DraftStyleDefault-block{text-align:right}.ms2 .DraftEditor-alignRight .public-DraftEditorPlaceholder-root{right:0;text-align:right}.ms2 .public-DraftEditorPlaceholder-root{color:#9197a3;position:absolute;z-index:0}.ms2 .public-DraftEditorPlaceholder-hasFocus{color:#bdc1c9}.ms2 .DraftEditorPlaceholder-hidden{display:none}.ms2 .public-DraftStyleDefault-block{position:relative;white-space:pre-wrap}.ms2 .public-DraftStyleDefault-ltr{direction:ltr;text-align:left}.ms2 .public-DraftStyleDefault-rtl{direction:rtl;text-align:right}.ms2 .public-DraftStyleDefault-listLTR{direction:ltr}.ms2 .public-DraftStyleDefault-listRTL{direction:rtl}.ms2 .public-DraftStyleDefault-ol,.ms2 .public-DraftStyleDefault-ul{margin:16px 0;padding:0}.ms2 .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR{margin-left:1.5em}.ms2 .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listRTL{margin-right:1.5em}.ms2 .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listLTR{margin-left:3em}.ms2 .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listRTL{margin-right:3em}.ms2 .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listLTR{margin-left:4.5em}.ms2 .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listRTL{margin-right:4.5em}.ms2 .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listLTR{margin-left:6em}.ms2 .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listRTL{margin-right:6em}.ms2 .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listLTR{margin-left:7.5em}.ms2 .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listRTL{margin-right:7.5em}.ms2 .public-DraftStyleDefault-unorderedListItem{list-style-type:square;position:relative}.ms2 .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth0{list-style-type:disc}.ms2 .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth1{list-style-type:circle}.ms2 .public-DraftStyleDefault-orderedListItem{list-style-type:none;position:relative}.ms2 .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listLTR:before{left:-36px;position:absolute;text-align:right;width:30px}.ms2 .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listRTL:before{position:absolute;right:-36px;text-align:left;width:30px}.ms2 .public-DraftStyleDefault-orderedListItem:before{content:counter(ol0) ". ";counter-increment:ol0}.ms2 .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth1:before{content:counter(ol1) ". ";counter-increment:ol1}.ms2 .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth2:before{content:counter(ol2) ". ";counter-increment:ol2}.ms2 .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth3:before{content:counter(ol3) ". ";counter-increment:ol3}.ms2 .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth4:before{content:counter(ol4) ". ";counter-increment:ol4}.ms2 .public-DraftStyleDefault-depth0.public-DraftStyleDefault-reset{counter-reset:ol0}.ms2 .public-DraftStyleDefault-depth1.public-DraftStyleDefault-reset{counter-reset:ol1}.ms2 .public-DraftStyleDefault-depth2.public-DraftStyleDefault-reset{counter-reset:ol2}.ms2 .public-DraftStyleDefault-depth3.public-DraftStyleDefault-reset{counter-reset:ol3}.ms2 .public-DraftStyleDefault-depth4.public-DraftStyleDefault-reset{counter-reset:ol4}</style><style>.ms2 #mapstore-elevation {
+    width: 100%;
+    /*margin-top: -46px;*/
+    height: 80px;
+    padding: 0 5px;
+}
+
+.ms2 label#mapstore-elevation-label {
+    margin-top: 10px;
+}
+
+.ms2 .custom-tooltip {
+    width: auto;
+    margin: 0;
+    line-height: 24px;
+    border: 1px solid #C1C1C1;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+}
+.ms2 .custom-tooltip  .label {
+  margin: 0;
+  color: #82CA9D;
+  font-weight: bold;
+  font-size: 16px;
+}
+</style><style>:root,
+.ms2 :host {
+  --ol-background-color: white;
+  --ol-accent-background-color: #F5F5F5;
+  --ol-subtle-background-color: rgba(128, 128, 128, 0.25);
+  --ol-partial-background-color: rgba(255, 255, 255, 0.75);
+  --ol-foreground-color: #333333;
+  --ol-subtle-foreground-color: #666666;
+  --ol-brand-color: #00AAFF;
+}
+
+.ms2 .ol-box {
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1.5px solid var(--ol-background-color);
+  background-color: var(--ol-partial-background-color);
+}
+
+.ms2 .ol-mouse-position {
+  top: 8px;
+  right: 8px;
+  position: absolute;
+}
+
+.ms2 .ol-scale-line {
+  background: var(--ol-partial-background-color);
+  border-radius: 4px;
+  bottom: 8px;
+  left: 8px;
+  padding: 2px;
+  position: absolute;
+}
+
+.ms2 .ol-scale-line-inner {
+  border: 1px solid var(--ol-subtle-foreground-color);
+  border-top: none;
+  color: var(--ol-foreground-color);
+  font-size: 10px;
+  text-align: center;
+  margin: 1px;
+  will-change: contents, width;
+  transition: all 0.25s;
+}
+
+.ms2 .ol-scale-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+.ms2 .ol-scale-bar-inner {
+  display: flex;
+}
+
+.ms2 .ol-scale-step-marker {
+  width: 1px;
+  height: 15px;
+  background-color: var(--ol-foreground-color);
+  float: right;
+  z-index: 10;
+}
+
+.ms2 .ol-scale-step-text {
+  position: absolute;
+  bottom: -5px;
+  font-size: 10px;
+  z-index: 11;
+  color: var(--ol-foreground-color);
+  text-shadow: -1.5px 0 var(--ol-partial-background-color), 0 1.5px var(--ol-partial-background-color), 1.5px 0 var(--ol-partial-background-color), 0 -1.5px var(--ol-partial-background-color);
+}
+
+.ms2 .ol-scale-text {
+  position: absolute;
+  font-size: 12px;
+  text-align: center;
+  bottom: 25px;
+  color: var(--ol-foreground-color);
+  text-shadow: -1.5px 0 var(--ol-partial-background-color), 0 1.5px var(--ol-partial-background-color), 1.5px 0 var(--ol-partial-background-color), 0 -1.5px var(--ol-partial-background-color);
+}
+
+.ms2 .ol-scale-singlebar {
+  position: relative;
+  height: 10px;
+  z-index: 9;
+  box-sizing: border-box;
+  border: 1px solid var(--ol-foreground-color);
+}
+
+.ms2 .ol-scale-singlebar-even {
+  background-color: var(--ol-subtle-foreground-color);
+}
+
+.ms2 .ol-scale-singlebar-odd {
+  background-color: var(--ol-background-color);
+}
+
+.ms2 .ol-unsupported {
+  display: none;
+}
+
+.ms2 .ol-viewport,
+.ms2 .ol-unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ms2 .ol-viewport canvas {
+  all: unset;
+}
+
+.ms2 .ol-selectable {
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+.ms2 .ol-grabbing {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.ms2 .ol-grab {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.ms2 .ol-control {
+  position: absolute;
+  background-color: var(--ol-subtle-background-color);
+  border-radius: 4px;
+}
+
+.ms2 .ol-zoom {
+  top: .5em;
+  left: .5em;
+}
+
+.ms2 .ol-rotate {
+  top: .5em;
+  right: .5em;
+  transition: opacity .25s linear, visibility 0s linear;
+}
+
+.ms2 .ol-rotate.ol-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s linear, visibility 0s linear .25s;
+}
+
+.ms2 .ol-zoom-extent {
+  top: 4.643em;
+  left: .5em;
+}
+
+.ms2 .ol-full-screen {
+  right: .5em;
+  top: .5em;
+}
+
+.ms2 .ol-control button {
+  display: block;
+  margin: 1px;
+  padding: 0;
+  color: var(--ol-subtle-foreground-color);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: inherit;
+  text-align: center;
+  height: 1.375em;
+  width: 1.375em;
+  line-height: .4em;
+  background-color: var(--ol-background-color);
+  border: none;
+  border-radius: 2px;
+}
+
+.ms2 .ol-control button::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+
+.ms2 .ol-zoom-extent button {
+  line-height: 1.4em;
+}
+
+.ms2 .ol-compass {
+  display: block;
+  font-weight: normal;
+  will-change: transform;
+}
+
+.ms2 .ol-touch .ol-control button {
+  font-size: 1.5em;
+}
+
+.ms2 .ol-touch .ol-zoom-extent {
+  top: 5.5em;
+}
+
+.ms2 .ol-control button:hover,
+.ms2 .ol-control button:focus {
+  text-decoration: none;
+  outline: 1px solid var(--ol-subtle-foreground-color);
+  color: var(--ol-foreground-color);
+}
+
+.ms2 .ol-zoom .ol-zoom-in {
+  border-radius: 2px 2px 0 0;
+}
+
+.ms2 .ol-zoom .ol-zoom-out {
+  border-radius: 0 0 2px 2px;
+}
+
+.ms2 .ol-attribution {
+  text-align: right;
+  bottom: .5em;
+  right: .5em;
+  max-width: calc(100% - 1.3em);
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+}
+
+.ms2 .ol-attribution a {
+  color: var(--ol-subtle-foreground-color);
+  text-decoration: none;
+}
+
+.ms2 .ol-attribution ul {
+  margin: 0;
+  padding: 1px .5em;
+  color: var(--ol-foreground-color);
+  text-shadow: 0 0 2px var(--ol-background-color);
+  font-size: 12px;
+}
+
+.ms2 .ol-attribution li {
+  display: inline;
+  list-style: none;
+}
+
+.ms2 .ol-attribution li:not(:last-child):after {
+  content: " ";
+}
+
+.ms2 .ol-attribution img {
+  max-height: 2em;
+  max-width: inherit;
+  vertical-align: middle;
+}
+
+.ms2 .ol-attribution button {
+  flex-shrink: 0;
+}
+
+.ms2 .ol-attribution.ol-collapsed ul {
+  display: none;
+}
+
+.ms2 .ol-attribution:not(.ol-collapsed) {
+  background: var(--ol-partial-background-color);
+}
+
+.ms2 .ol-attribution.ol-uncollapsible {
+  bottom: 0;
+  right: 0;
+  border-radius: 4px 0 0;
+}
+
+.ms2 .ol-attribution.ol-uncollapsible img {
+  margin-top: -.2em;
+  max-height: 1.6em;
+}
+
+.ms2 .ol-attribution.ol-uncollapsible button {
+  display: none;
+}
+
+.ms2 .ol-zoomslider {
+  top: 4.5em;
+  left: .5em;
+  height: 200px;
+}
+
+.ms2 .ol-zoomslider button {
+  position: relative;
+  height: 10px;
+}
+
+.ms2 .ol-touch .ol-zoomslider {
+  top: 5.5em;
+}
+
+.ms2 .ol-overviewmap {
+  left: 0.5em;
+  bottom: 0.5em;
+}
+
+.ms2 .ol-overviewmap.ol-uncollapsible {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 4px 0 0;
+}
+
+.ms2 .ol-overviewmap .ol-overviewmap-map,
+.ms2 .ol-overviewmap button {
+  display: block;
+}
+
+.ms2 .ol-overviewmap .ol-overviewmap-map {
+  border: 1px solid var(--ol-subtle-foreground-color);
+  height: 150px;
+  width: 150px;
+}
+
+.ms2 .ol-overviewmap:not(.ol-collapsed) button {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.ms2 .ol-overviewmap.ol-collapsed .ol-overviewmap-map,
+.ms2 .ol-overviewmap.ol-uncollapsible button {
+  display: none;
+}
+
+.ms2 .ol-overviewmap:not(.ol-collapsed) {
+  background: var(--ol-subtle-background-color);
+}
+
+.ms2 .ol-overviewmap-box {
+  border: 1.5px dotted var(--ol-subtle-foreground-color);
+}
+
+.ms2 .ol-overviewmap .ol-overviewmap-box:hover {
+  cursor: move;
+}
+</style><style>.ms2 .ol-control button:hover, .ms2 .ol-control button:focus {
+    background-color: #f4f4f4;
+}
+.ms2 .ol-zoom .ol-zoom-out, .ms2 .ol-zoom .ol-zoom-in{
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    display: block;
+
+    color: black;
+    background-color: #fff;
+    border-width: 0;
+    margin:0;
+}
+.ms2 .ol-zoom.ol-unselectable.ol-control .ol-zoom-in, .ms2 .ol-zoom.ol-unselectable.ol-control .ol-zoom-out {
+    font-family: 'Lucida Console', Monaco, monospace;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ms2 .ol-zoom .ol-zoom-out{
+    font-size: 18px;
+    border-radius: 0 0 4px 4px;
+}
+.ms2 .ol-zoom .ol-zoom-in{
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px 4px 0 0;
+    font-size: 20px;
+}
+.ms2 .ol-zoom.ol-unselectable.ol-control{
+    top:10px;
+    left:10px;
+    padding:0;
+    box-shadow: rgba(0, 0, 0, 0.65098) 0px 1px 5px 0px;
+    border-radius: 4px;
+}
+
+.ms2 .ol-scale-line.ol-unselectable{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+</style><style>.ms2 .ol-custom-overviewmap,
+       .ms2 .ol-custom-overviewmap.ol-uncollapsible {
+          bottom: 20px;
+          left: auto;
+          right: 10px;
+          top: auto;
+
+      }
+      .ms2 .ol-custom-overviewmap:not(.ol-collapsed)  {
+
+           box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+           border-radius: 1px;
+           transition: all .2s;
+      }
+      .ms2 .ol-custom-overviewmap .ol-overviewmap-map {
+          border: none;
+          width: 300px;
+          height: 150px;
+
+      }
+
+      .ms2 .ol-custom-overviewmap .ol-overviewmap-box {
+          border: 1px solid black;
+          cursor: pointer;
+          border-radius: 5px;
+      }
+
+      .ms2 .ol-custom-overviewmap:not(.ol-collapsed) button{
+          bottom: auto;
+          left: auto;
+          right: 2px;
+          bottom: 2px;
+      }
+
+      .ms2 .ol-rotate {
+          top: 170px;
+          right: 0;
+      }
+      .ms2 .ol-overview-dargbox{
+           border: 1px solid black;
+           background-color: rgba(125,125,0,.5);
+           border-radius: 5px;
+      }
+</style><style>.ms2 .ol-popup {
+    position: absolute;
+    text-align: center;
+    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+    -ms-transform: translate(-50%,-100%); /* IE 9 */
+    -webkit-transform: translate(-50%,-100%); /* Safari */
+    transform: translate(-50%,-100%);
+}
+.ms2 a.ol-popup-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 4px 0 0;
+  text-align: center;
+  width: 18px;
+  height: 14px;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #c3c3c3;
+  text-decoration: none;
+  font-weight: bold;
+  background: transparent;
+}
+.ms2 .ol-popup-cnt-wrapper {
+  padding: 1px;
+  text-align: left;
+  border-radius: 12px;
+}
+.ms2 .ol-popup-cnt-wrapper, .ms2 .ol-popup-tip {
+  background: white;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.ms2 .ol-popup-cnt {
+  margin: 13px 19px;
+  line-height: 1.4;
+   white-space: nowrap;
+
+}
+.ms2 .ol-popup-tip-wrapper {
+  margin: 0 auto;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+
+}
+.ms2 .ol-popup-tip {
+  width: 17px;
+  height: 17px;
+  padding: 1px;
+  margin: -10px auto 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style><style id="plotly.js-style-global"></style><style type="text/css" id="react-draggable-style-el">.react-draggable-transparent-selection *::-moz-selection {all: inherit;}
+.react-draggable-transparent-selection *::selection {all: inherit;}
+</style><style type="text/css">.react-grid-Header{box-shadow:0 0 4px 0 #ddd;background:#f9f9f9}.react-grid-Header--resizing{cursor:ew-resize}.react-grid-HeaderCell,.react-grid-HeaderRow{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.react-grid-HeaderCell{background:#f9f9f9;padding:8px;font-weight:700;border-right:1px solid #ddd;border-bottom:1px solid #ddd}.react-grid-HeaderCell__value{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;position:relative;top:50%;transform:translateY(-50%)}.react-grid-HeaderCell__resizeHandle:hover{cursor:ew-resize;background:#ddd}.react-grid-HeaderCell--frozen:last-of-type{box-shadow:2px 0 5px -2px hsla(0,0%,53%,.3)}.react-grid-HeaderCell--resizing .react-grid-HeaderCell__resizeHandle{background:#ddd}.react-grid-HeaderCell__draggable{cursor:col-resize}.rdg-can-drop>.react-grid-HeaderCell{background:#ececec}.react-grid-HeaderCell .Select{max-height:30px;font-size:12px;font-weight:400}.react-grid-HeaderCell .Select-control{max-height:30px;border:1px solid #ccc;color:#555;border-radius:3px}.react-grid-HeaderCell .is-focused:not(.is-open)>.Select-control{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.react-grid-HeaderCell .Select-control .Select-placeholder{line-height:20px;color:#999;padding:4px}.react-grid-HeaderCell .Select-control .Select-input{max-height:28px;padding:4px;margin-left:0}.react-grid-HeaderCell .Select-control .Select-input input{padding:0;height:100%}.react-grid-HeaderCell .Select-control .Select-arrow-zone .Select-arrow{border-color:gray transparent transparent;border-width:4px 4px 2.5px}.react-grid-HeaderCell .Select-control .Select-value{padding:4px;line-height:20px!important}.react-grid-HeaderCell .Select--multi .Select-control .Select-value{padding:0;line-height:16px!important;max-height:20px}.react-grid-HeaderCell .Select--multi .Select-control .Select-value .Select-value-icon,.react-grid-HeaderCell .Select--multi .Select-control .Select-value .Select-value-label{max-height:20px}.react-grid-HeaderCell .Select-control .Select-value .Select-value-label{color:#555!important}.react-grid-HeaderCell .Select-menu-outer{z-index:2}.react-grid-HeaderCell .Select-menu-outer .Select-option{padding:4px;line-height:20px}.react-grid-HeaderCell .Select-menu-outer .Select-menu .Select-option.is-focused,.react-grid-HeaderCell .Select-menu-outer .Select-menu .Select-option.is-selected{color:#555}</style><style type="text/css">.react-grid-Cell{background-color:#fff;padding-left:8px;padding-right:8px;border-right:1px solid #eee;border-bottom:1px solid #ddd}.rdg-selected{border:2px solid #66afe9}.rdg-selected-range{border:1px solid #66afe9;background-color:#66afe930}.moving-element{will-change:transform}.react-grid-Cell--frozen,.react-grid-Cell--frozen:focus{z-index:12}.rdg-last--frozen{border-right:1px solid #ddd;box-shadow:2px 0 5px -2px hsla(0,0%,53%,.3)!important}.react-contextmenu--visible{z-index:1000}.react-grid-Cell:not(.editing) .react-grid-Cell__value{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;height:inherit}.react-grid-Cell.readonly{background-color:#000}.react-grid-Cell:hover{background:#eee}.react-grid-cell .form-control-feedback{color:#a94442;position:absolute;top:0;right:10px;z-index:1000000;display:block;width:34px;height:34px}.react-grid-Row.row-selected .react-grid-Cell{background-color:#dbecfa}.react-grid-Cell.editing{padding:0;overflow:visible!important}.react-grid-Cell--frozen.editing{z-index:100}.react-grid-Cell.editing .has-error input{border:2px solid red!important;border-radius:2px!important}.react-grid-Cell__value ul{margin-top:0;margin-bottom:0;display:inline-block}.react-grid-Cell__value .btn-sm{padding:0}.cell-tooltip{position:relative;display:inline-block}.cell-tooltip:hover{z-index:101}.cell-tooltip .cell-tooltip-text{visibility:hidden;width:150px;background-color:#000;color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:1;bottom:-150%;left:50%;margin-left:-60px;opacity:1s}.cell-tooltip:hover .cell-tooltip-text{visibility:visible;opacity:.8}.cell-tooltip .cell-tooltip-text:after{content:" ";position:absolute;bottom:100%;left:50%;margin-left:-5px;border-width:5px;border-style:solid;border-color:transparent transparent #000}.react-grid-Canvas.opaque .react-grid-Cell.cell-tooltip:hover .cell-tooltip-text{visibility:hidden}.rdg-cell-expand{float:right;display:table;height:100%}.rdg-cell-expand>span{display:table-cell;vertical-align:middle;cursor:pointer}.rdg-child-row-action-cross-last:before,.rdg-child-row-action-cross:before,rdg-child-row-action-cross-last:after,rdg-child-row-action-cross:after{content:"";position:absolute;background:grey;height:50%}.rdg-child-row-action-cross:before{left:21px;width:1px;height:100%}.rdg-child-row-action-cross-last:before{left:21px;width:1px}.rdg-child-row-action-cross-last:after,.rdg-child-row-action-cross:after{top:50%;left:20px;height:1px;width:15px;content:"";position:absolute;background:grey}.rdg-child-row-action-cross:hover{background:red}.rdg-child-row-btn{position:absolute;cursor:pointer;border:1px solid grey;border-radius:14px;z-index:3;background:#fff}.rdg-child-row-btn div{font-size:12px;text-align:center;line-height:19px;color:grey;height:20px;width:20px;position:absolute;top:60%;left:53%;margin-top:-10px;margin-left:-10px}.rdg-empty-child-row:hover .glyphicon-plus-sign,.rdg-empty-child-row:hover a{color:green}.rdg-child-row-btn .glyphicon-remove-sign:hover{color:red}.last-column .cell-tooltip-text{right:100%;left:0!important}.rdg-cell-action{float:right;height:100%}.rdg-cell-action-last{margin-right:-8px}.rdg-cell-action-button{width:35px;height:100%;text-align:center;position:relative;display:table;color:#4a9de2}.rdg-cell-action-button>span{display:table-cell;vertical-align:middle}.rdg-cell-action-button-toggled,.rdg-cell-action-button:hover{color:#447bbb}.rdg-cell-action-menu{position:absolute;top:100%;z-index:1000;float:left;min-width:160px;padding:5px 0;text-align:left;list-style:none;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #ccc;box-shadow:0 0 3px 0 #ccc}.rdg-cell-action-menu>span{display:block;padding:3px 10px;clear:both;font-weight:400;line-height:1.42857143;color:#333;white-space:nowrap}.rdg-cell-action-menu>span:hover{color:#262626;text-decoration:none;background-color:#f5f5f5}</style><style type="text/css">.react-grid-Row.row-context-menu .react-grid-Cell,.react-grid-Row:hover .react-grid-Cell{background-color:#f9f9f9}.react-grid-Row:hover .rdg-row-index{display:none}.react-grid-Row:hover .rdg-actions-checkbox{display:block}.react-grid-Row:hover .rdg-drag-row-handle{cursor:move;cursor:grab;cursor:-moz-grab;cursor:-webkit-grab;width:12px;height:30px;margin-left:0;background-image:url("data:image/svg+xml;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjlweCIgaGVpZ2h0PSIyOXB4IiB2aWV3Qm94PSIwIDAgOSAyOSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMzkgKDMxNjY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5kcmFnIGljb248L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iQWN0dWFsaXNhdGlvbi12MiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRlc2t0b3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNS4wMDAwMDAsIC0yNjIuMDAwMDAwKSIgZmlsbD0iI0Q4RDhEOCI+CiAgICAgICAgICAgIDxnIGlkPSJJbnRlcmFjdGlvbnMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1LjAwMDAwMCwgMjU4LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlJvdy1Db250cm9scyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9ImRyYWctaWNvbiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDIuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMTIiIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iNyIgY3k9IjEyIiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0zMCIgY3g9IjIiIGN5PSIxNyIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSI3IiBjeT0iMTciIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iMiIgY3k9IjIyIiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICAgICAgPGNpcmNsZSBpZD0iT3ZhbC0zMCIgY3g9IjciIGN5PSIyMiIgcj0iMiI+PC9jaXJjbGU+CiAgICAgICAgICAgICAgICAgICAgICAgIDxjaXJjbGUgaWQ9Ik92YWwtMzAiIGN4PSIyIiBjeT0iMjciIHI9IjIiPjwvY2lyY2xlPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGlkPSJPdmFsLTMwIiBjeD0iNyIgY3k9IjI3IiByPSIyIj48L2NpcmNsZT4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==");background-repeat:no-repeat}.react-grid-Row.row-selected,.react-grid-Row .row-selected{background-color:#dbecfa}.react-grid-row-group .row-expand-icon:hover{color:#777}.react-grid-row-index{padding:0 18px}.rdg-row-index{display:block;text-align:center}.rdg-row-actions-cell{padding:0}.rdg-actions-checkbox{display:none;text-align:center}.rdg-actions-checkbox.selected{display:block}.rdg-dragging{cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.rdg-dragged-row{border-bottom:1px solid #000}.rdg-scrolling{pointer-events:none}</style><style type="text/css">.react-grid-Container{clear:both;margin-top:0;padding:0}.react-grid-Main{background-color:#fff;color:inherit;padding:0;outline:1px solid #e7eaec;clear:both}.react-grid-Grid{border:1px solid #ddd;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.react-grid-Canvas,.react-grid-Grid{background-color:#fff}</style><style type="text/css">.rdg-selected{border:2px solid #66afe9}.rdg-selected .drag-handle{pointer-events:auto;position:absolute;bottom:-5px;right:-4px;background:#66afe9;width:8px;height:8px;border:1px solid #fff;border-right:0;border-bottom:0;z-index:8;cursor:crosshair;cursor:-moz-grab;cursor:-webkit-grab;cursor:grab}.rdg-selected:hover .drag-handle{bottom:-8px;right:-7px;background:#fff;width:16px;height:16px;border:1px solid #66afe9}.rdg-selected:hover .drag-handle .glyphicon-arrow-down{display:"block"}.react-grid-cell-dragged-over-down,.react-grid-cell-dragged-over-up{border:1px dashed #000;background:rgba(0,0,255,.2)!important}.react-grid-cell-dragged-over-up{border-bottom-width:0}.react-grid-cell-dragged-over-down{border-top-width:0}.react-grid-cell-copied{background:rgba(0,0,255,.2)!important}.rdg-editor-container input.editor-main,select.editor-main{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}input.editor-main:focus,select.editor-main:focus{border-color:#66afe9;border:2px solid #66afe9;background:#eee;border-radius:4px}.rdg-editor-container input.editor-main::-moz-placeholder,select.editor-main::-moz-placeholder{color:#999;opacity:1}.rdg-editor-container input.editor-main:-ms-input-placeholder,select.editor-main:-ms-input-placeholder{color:#999}.rdg-editor-container input.editor-main::-webkit-input-placeholder,select.editor-main::-webkit-input-placeholder{color:#999}.rdg-editor-container input.editor-main[disabled],.rdg-editor-container input.editor-main[readonly],fieldset[disabled] .rdg-editor-container input.editor-main,fieldset[disabled] select.editor-main,select.editor-main[disabled],select.editor-main[readonly]{cursor:not-allowed;background-color:#eee;opacity:1}textarea.rdg-editor-container input.editor-main,textareaselect.editor-main{height:auto}</style><style type="text/css">.radio-custom,.react-grid-checkbox{opacity:0;position:absolute}.radio-custom,.radio-custom-label,.react-grid-checkbox,.react-grid-checkbox-label{display:inline-block;vertical-align:middle;cursor:pointer}.radio-custom-label,.react-grid-checkbox-label{position:relative}.radio-custom+.radio-custom-label:before,.react-grid-checkbox+.react-grid-checkbox-label:before{content:"";background:#fff;border:2px solid #ddd;display:inline-block;vertical-align:middle;width:20px;height:20px;text-align:center}.react-grid-checkbox:checked+.react-grid-checkbox-label:before{background:#005295;box-shadow:inset 0 0 0 4px #fff}.radio-custom:focus+.radio-custom-label,.react-grid-checkbox:focus+.react-grid-checkbox-label{outline:1px solid #ddd}.react-grid-HeaderCell input[type=checkbox]{z-index:99999}.react-grid-HeaderCell>.react-grid-checkbox-container{padding:0 10px;height:100%}.react-grid-HeaderCell>.react-grid-checkbox-container>.react-grid-checkbox-label{margin:0;position:relative;top:50%;transform:translateY(-50%)}.radio-custom+.radio-custom-label:before{border-radius:50%}.radio-custom:checked+.radio-custom-label:before{background:#ccc;box-shadow:inset 0 0 0 4px #fff}.checkbox-align{text-align:center}</style></head><body class="ms2" data-ms2-container="ms2" style=""><div id="container" class="" style=""><div class="fill"><div class="error-container"><div id="page-dashboard" class="page page-dashboard " style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><span id="mapstore-navbar"><div id="mapstore-navbar-container" class="navbar shadow navbar-home"><div class="dropdown btn-group btn-group-success"><button id="loginButton" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="square-button dropdown-toggle btn btn-success" fdprocessedid="lpdedr"><span class="glyphicon glyphicon-user"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="loginButton"><span><li role="heading" class="dropdown-header">admin</li></span><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"> <span class="glyphicon glyphicon-user"></span><span> Account Info</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"> <span class="glyphicon glyphicon-asterisk"></span> <span>Change Password</span></a></li><li role="separator" class="divider"></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-log-out"></span> <span>Logout</span></a></li></ul></div><button id="home-button" tooltip="[object Object]" icon="home" type="button" class="square-button btn btn-primary" fdprocessedid="fbtqr8"><span class="glyphicon glyphicon-home"></span></button><div class="mapstore-langselector"><div class="dropdown btn-group"><button id="mapstore-langselector" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="dropdown-toggle btn btn-default" fdprocessedid="bqlj1"><span class="lang-button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAYAAAB24g05AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3woNChAfXTteVAAAAjRJREFUKM9VkklIlVEAhb9fHxkVDWLwQKw2URI0kQ2GmoYELcJFhFZQ+FBxHaRhIA20qKiWrzDSoAwMGsgicEIlizILi+ZNIERJhNp777/3/ve0sEV9q7M78J0TJBqGxb94D94BBhBguLK8B6V+M/njGwbwgJ23hLHSBCQahuV9pOsDTlZGHX1O1lq19TqFYUbJx07GhArDUJlMWul0SnZ0RD4KlXw0riDRMKyymq10DnoiD5EH40Sk2ZxxYpQW+PkLxbLxW7cwp7aWa13jnE++IAss8nC3SYQe7jdZIkH30RQZJ94GkGptxTXWk336FO/KqqjYfYs376fIGEOQqBtUaU0x1/o8kZ9tdhZCibeELHVPmWheSxCP/6dKgtcfvxPDp9hfItp6xIOmDJWn5tLdNEX8jGGy6jPzkx246glkDN5avDEQRcRW59P7EWIg2gcCnIPy0zl4J9ZczDB+dDGL9h3Hh5bsZyN/Fwnw3iOEBDs+TcLXr19krVUqldLMzIzS09MKW5olSX7jJtl1GzRLpImKcvVf7lY8/4r2Hr6jhSuOKCu//RLZY0/IuXCBWOcNwmSSRLhn9hJhiIwBie07Osnr7aMo+MarykHWFi1HkSXrS3U9bv02THwBoysrOPF7M7kLIiQICvMJCuNIomBVLgcP3WaosISlbW00Pm+l7kAxQX/HTX3oGqKrYBsvhwzWpXFRxMi9ah5WViHn2NXbTdHOs+Aj8BF5y5Zw7FwNAyev8gcAFF3B0hKD4gAAAABJRU5ErkJggg==" alt="English"></span> <span class="caret"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="mapstore-langselector"><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="lang-button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAE2SURBVHjaYmSYyMDwgwEE/jEw/GF4mvT0HyqQUlX9B5aEIIAAYmH4wlDtWg1SDwT//0lKSv7/D+T9/w+nYmL+//79/88fIPll0yaAAGJhYAGJP/n69O+/v0CAUAcHt2////ULqJpRVhZoA0AAsQCtAZoMVP0HiP7+RlcNBEDVYA0Mv38DNQAEEMj8vwx//wCt/AdC/zEBkgagYoAAYgF6FGj277+///wlpAEoz8AAEEAgDX/BZv/69wuoB48GRrCTAAKICajh9//fv/6CVP/++wu7BrDxQFf/YWAACCCwk0BKf0MQdg1/gBqAPv0L9ANAALEAY+33vz+S3JIgb/z5C45CBkZGRgY4UFICKQUjoJMAAoiRoZSB4RMojkHx/YPhbNVZoM3AOISQQPUK9vaQOIYAgAADAC5Wd4RRwnKfAAAAAElFTkSuQmCC" alt="Italiano"></span> Italiano</a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="lang-button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGzSURBVHjaYiyeepkBBv79+Zfnx/f379+fP38CyT9//jAyMiq5GP77wvDnJ8MfoAIGBoAAYgGqC7STApL///3/9++/pCTv////Qdz/QO4/IMna0vf/z+9/v379//37bUUTQACBNDD8Z/j87fffvyAVX79+/Q8GQDbQeKA9fM+e/Pv18/+vnwzCIkBLAAKQOAY5AIAwCEv4/4PddNUm3ji0QJyxW3rgzE0iLfqDGr2oYuu0l54AYvnz5x9Q6d+/QPQfyAQqAin9B3EOyG1A1UDj//36zfjr1y8GBoAAFI9BDgAwCMIw+P8Ho3GDO6XQ0l4MN8b2kUwYaLszqgKM/KHcDXwBxAJUD3TJ779A8h9Q5D8SAHoARP36+Rfo41+/mcA2AAQQy49ff0Cu//MPpAeI/0FdA1QNYYNVA/3wmwEYVgwMAAHE8uPHH5BqoD1//gJJLADoJKDS378Z//wFhhJAALF8A3rizz8uTmYg788fJkj4QOKREQyYxSWBhjEC/fcXZANAALF8+/anbcHlHz9+ffvx58uPX9KckkCn/gby/wLd8uvHjx96k+cD1UGiGQgAAgwA7q17ZpsMdUQAAAAASUVORK5CYII=" alt="Français"></span> Français</a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="lang-button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGzSURBVHjaYvTxcWb4+53h3z8GZpZff/79+v3n/7/fDAz/GHAAgABi+f37e3FxOZD1Dwz+/v3z9y+E/AMFv3//+Qumfv9et241QACxMDExAVWfOHkJJAEW/gUEP0EQDn78+AHE/gFOQJUAAcQiy8Ag8O+fLFj1n1+/QDp+/gQioK7fP378+vkDqOH39x9A/RJ/gE5lAAhAYhzcAACCQBDkgRXRjP034R0IaDTZTFZn0DItot37S94KLOINerEcI7aKHAHE8v/3r/9//zIA1f36/R+o4tevf1ANYNVA9P07RD9IJQMDQACxADHD3z8Ig4GMHz+AqqHagKp//fwLVA0U//v7LwMDQACx/LZiYFD7/5/53/+///79BqK/EMZ/UPACSYa/v/8DyX9A0oTxx2EGgABi+a/H8F/m339BoCoQ+g8kgRaCQvgPJJiBYmAuw39hxn+uDAABxMLwi+E/0PusRkwMvxhBGoDkH4b/v/+D2EDyz///QB1/QLb8+sP0lQEggFh+vGXYM2/SP6A2Zoaf30Ex/J+PgekHwz9gQDAz/P0FYrAyMfz7wcDAzPDtFwNAgAEAd3SIyRitX1gAAAAASUVORK5CYII=" alt="Deutsch"></span> Deutsch</a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="lang-button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFnSURBVHjaYvzPgAD/UNlYEUAAmuTYAAAQhAEYqF/zFbe50RZ1cMmS9TLi0pJLRjZohAMTGFUN9HdnHgEE1sDw//+Tp0ClINW/f0NIKPoFJH/9//ULyGaUlQXaABBALAx/Gf4zAt31F4i+ffj3/cN/XrFfzOx//v///f//LzACM/79ZmD8/e8TA0AAMYHdDVT958vXP38nMDB0s3x94/Tj5y+YahhiAKLfQKUAAcQEdtJfoDHMF2L+vPzDmFXLelf551tGFOOhev4A/QgQQExgHwAd8IdFT/Wz6j+GhlpmXSOW/2z///8Eq/sJ18Dw/zdQA0AAMQExxJjjdy9x2/76EfLz4MXdP/i+wsyGkkA3Aw3984cBIIAYfzIwMKel/bt3jwEaLNAwgZIQxp/fDH/+MqqovL14ESCAWICeZvr9h0FSEhSgwBgAygFDEMT+wwAhgQgc4kAEVAwQQIxfUSMSTxxDAECAAQAJWke8v4u1tAAAAABJRU5ErkJggg==" alt="Español"></span> Español</a></li></ul></div></div><ul class="nav pull-left"><li role="presentation" class=""><a target="_blank" href="https://www.geosolutionsgroup.com/"><img class="customer-logo" src="./MapStore HomePage_files/mapstorelogo.png" height="30"></a></li></ul><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 1321px; height: 81px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div></span><div class="ms2-mask-container ms2-loading-mask ms2-mask-empty"></div><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div class="react-grid-layout widget-container on-map " style="height: 490px; position: absolute; z-index: 50;"><div data-grid="[object Object]" class="react-grid-item react-draggable cssTransforms react-resizable" style="width: 605px; height: 470px; position: absolute; transform: translate(10px, 10px);"><div class="mapstore-widget-card " id="widget-text-62a36190-3ff4-11f0-992a-d18abae8f724"><div class="map-widget-view" style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="mapstore-widget-info draggableHandle" style="border-top: 3px solid rgb(172, 95, 57); transition: border-color 0.5s ease-out;"><div class="mapstore-widget-header"><span class="widget-icons"><div class="btn-group"><span><button target="icons" type="button" class="no-border btn btn-xs btn-link" fdprocessedid="p4ny7"><span class="glyphicon glyphicon-resize-full"></span></button></span></div></span><span class="widget-title">Perbandingan tingkat dominasi pasar</span><span class="mapstore-widget-options"><div role="toolbar" class="btn-toolbar"><div class="dropdown btn-group btn-group-default"><button id="dropdown-no-caret" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="widget-menu dropdown-toggle btn btn-default" fdprocessedid="x0j92e"><span class="glyphicon glyphicon-option-vertical"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-no-caret"><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-pencil"></span><span>Edit</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-trash"></span><span>Delete</span></a></li></ul></div></div></span></div></div><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div id="62a36190-3ff4-11f0-992a-d18abae8f724" style="margin: 0px 10px 10px; height: calc(100% - 10px);"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; cursor: auto;"><div class="ol-unselectable ol-layers" style="position: absolute; width: 100%; height: 100%; z-index: 0;"><div class="ol-layer" style="position: absolute; width: 100%; height: 100%;"><canvas width="877" height="643" style="position: absolute; left: 0px; transform-origin: left top; transform: matrix(0.666667, 0, 0, 0.666667, 0.166667, 0.166667);"></canvas></div></div><div class="ol-overlaycontainer" style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"></div><div class="ol-overlaycontainer-stopevent" style="position: absolute; z-index: 0; width: 100%; height: 100%; pointer-events: none;"><div class="ol-rotate ol-unselectable ol-control ol-hidden" style="pointer-events: auto;"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-uncollapsible" style="pointer-events: auto;"><button type="button" aria-expanded="true" title="Attributions"><span class="ol-attribution-expand">i</span></button><ul><li>OSM Bright | Rendering <a href="https://www.geo-solutions.it/">GeoSolutions</a> | Data © <a href="http://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="http://www.openstreetmap.org/copyright">ODbL</a></li></ul></div></div></div><div></div></div></main></div></div></main></div></div></div><span class="react-resizable-handle react-resizable-handle-se"></span></div><div data-grid="[object Object]" class="react-grid-item react-draggable cssTransforms react-resizable" style="width: 400px; height: 150px; position: absolute; transform: translate(625px, 10px);"><div class="mapstore-widget-card " id="widget-text-79cfff90-3ff4-11f0-992a-d18abae8f724"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="mapstore-widget-info draggableHandle" style="border-top: 3px solid rgba(0, 0, 0, 0); transition: border-color 0.5s ease-out;"><div class="mapstore-widget-header"><span class="widget-icons"><div class="btn-group"><span><button target="icons" type="button" class="no-border btn btn-xs btn-link" fdprocessedid="rc6d4p"><span class="glyphicon glyphicon-resize-full"></span></button></span></div></span><span class="widget-title">Peta Persebaran Pasar Tradisional dan Pasar Modern di Kabupaten Sleman</span><span class="mapstore-widget-options"><div role="toolbar" class="btn-toolbar"><div class="dropdown btn-group btn-group-default"><button id="dropdown-no-caret" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="widget-menu dropdown-toggle btn btn-default" fdprocessedid="5yhrq9"><span class="glyphicon glyphicon-option-vertical"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-no-caret"><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-pencil"></span><span>Edit</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-trash"></span><span>Delete</span></a></li></ul></div></div></span></div></div><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div class="mapstore-widget-default-content ql-editor"><p><span style="color: rgb(51,51,51);background-color: rgb(255,255,255);font-size: 14px;font-family: Noto Sans;">Peta ini merupakan peta persebaran pasar tradisional dan modern yang ada di Kabupaten Sleman. Peta ini dibuat dengan menggunakan data dari Geoportal Sleman dan diolah oleh mahasiswa program studi Teknologi Survei dan Pemetaan Dasar.</span>&nbsp;</p>
+</div></main></div></div></div><span class="react-resizable-handle react-resizable-handle-se"></span></div><div data-grid="[object Object]" class="react-grid-item react-draggable cssTransforms react-resizable" style="width: 605px; height: 310px; position: absolute; transform: translate(625px, 170px);"><div class="mapstore-widget-card " id="widget-text-a6547b90-3ff4-11f0-992a-d18abae8f724"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="mapstore-widget-info draggableHandle" style="border-top: 3px solid rgb(172, 95, 57); transition: border-color 0.5s ease-out;"><div class="mapstore-widget-header"><span class="widget-icons"><div class="btn-group"><span><button target="icons" type="button" class="no-border btn btn-xs btn-link" fdprocessedid="xtz5dz"><span class="glyphicon glyphicon-resize-full"></span></button></span></div></span><span class="widget-title">Legenda</span><span class="mapstore-widget-options"><div role="toolbar" class="btn-toolbar"><div class="dropdown btn-group btn-group-default"><button id="dropdown-no-caret" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="widget-menu dropdown-toggle btn btn-default" fdprocessedid="v1s2ia"><span class="glyphicon glyphicon-option-vertical"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-no-caret"><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-pencil"></span><span>Edit</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-trash"></span><span>Delete</span></a></li></ul></div></div></span></div></div><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div class="ms-layers-tree legend-tree"><ul data-root-parent-id="Default"><li class="ms-node ms-node-layer"><div class="inline-loader-container"><div class="inline-loader-bar" style="display: none;"></div></div><div class="ms-node-header layers"><div class="ms-node-header-info"><div class="ms-node-header-addons"><div class="grab-handle disabled"></div><button class="ms-node-expand" fdprocessedid="fvmc4x"><span class="glyphicon glyphicon-bottom"></span></button><button class="ms-visibility-check active" fdprocessedid="hzhzs"><span class="glyphicon glyphicon-checkbox-on"></span></button><span class="ms-node-icon glyphicon glyphicon-1-layer"></span></div><div class="ms-node-title-container"><div class="ms-node-title">Jaringan_jalan</div></div><div class="ms-node-header-addons"></div></div></div><ul><li><div><img src="./MapStore HomePage_files/geoserver-GetLegendGraphic.image" style="max-width: 100%;"></div></li></ul><div class="mapstore-slider "><div class="noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-origin" style="left: 100%;"><div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 4;"></div></div></div></div></div></li><li class="ms-node ms-node-layer"><div class="inline-loader-container"><div class="inline-loader-bar" style="display: none;"></div></div><div class="ms-node-header layers"><div class="ms-node-header-info"><div class="ms-node-header-addons"><div class="grab-handle disabled"></div><button class="ms-node-expand" fdprocessedid="xwkyoe"><span class="glyphicon glyphicon-bottom"></span></button><button class="ms-visibility-check active" fdprocessedid="kjdy1e"><span class="glyphicon glyphicon-checkbox-on"></span></button><span class="ms-node-icon glyphicon glyphicon-1-layer"></span></div><div class="ms-node-title-container"><div class="ms-node-title">Batas_Desa</div></div><div class="ms-node-header-addons"></div></div></div><ul><li><div><img src="./MapStore HomePage_files/geoserver-GetLegendGraphic(1).image" style="max-width: 100%;"></div></li></ul><div class="mapstore-slider "><div class="noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-origin" style="left: 100%;"><div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 4;"></div></div></div></div></div></li><li class="ms-node ms-node-layer"><div class="inline-loader-container"><div class="inline-loader-bar" style="display: none;"></div></div><div class="ms-node-header layers"><div class="ms-node-header-info"><div class="ms-node-header-addons"><div class="grab-handle disabled"></div><button class="ms-node-expand" fdprocessedid="oww4hg"><span class="glyphicon glyphicon-bottom"></span></button><button class="ms-visibility-check active" fdprocessedid="0bxjjf"><span class="glyphicon glyphicon-checkbox-on"></span></button><span class="ms-node-icon glyphicon glyphicon-1-layer"></span></div><div class="ms-node-title-container"><div class="ms-node-title">Pasar Tradisional</div></div><div class="ms-node-header-addons"></div></div></div><ul><li><div><img src="./MapStore HomePage_files/geoserver-GetLegendGraphic(2).image" style="max-width: 100%;"></div></li></ul><div class="mapstore-slider "><div class="noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-origin" style="left: 100%;"><div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 4;"></div></div></div></div></div></li><li class="ms-node ms-node-layer"><div class="inline-loader-container"><div class="inline-loader-bar" style="display: none;"></div></div><div class="ms-node-header layers"><div class="ms-node-header-info"><div class="ms-node-header-addons"><div class="grab-handle disabled"></div><button class="ms-node-expand" fdprocessedid="myfh"><span class="glyphicon glyphicon-bottom"></span></button><button class="ms-visibility-check active" fdprocessedid="0kuij8"><span class="glyphicon glyphicon-checkbox-on"></span></button><span class="ms-node-icon glyphicon glyphicon-1-layer"></span></div><div class="ms-node-title-container"><div class="ms-node-title">Pasar Modern</div></div><div class="ms-node-header-addons"></div></div></div><ul><li><div><img src="./MapStore HomePage_files/geoserver-GetLegendGraphic(3).image" style="max-width: 100%;"></div></li></ul><div class="mapstore-slider "><div class="noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-origin" style="left: 100%;"><div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 4;"></div></div></div></div></div></li><li class="ms-node ms-node-layer"><div class="inline-loader-container"><div class="inline-loader-bar" style="display: none;"></div></div><div class="ms-node-header layers"><div class="ms-node-header-info"><div class="ms-node-header-addons"><div class="grab-handle disabled"></div><button class="ms-node-expand" fdprocessedid="9h9vwo"><span class="glyphicon glyphicon-bottom"></span></button><button class="ms-visibility-check active" fdprocessedid="svt63"><span class="glyphicon glyphicon-checkbox-on"></span></button><span class="ms-node-icon glyphicon glyphicon-1-layer"></span></div><div class="ms-node-title-container"><div class="ms-node-title">Dominasi</div></div><div class="ms-node-header-addons"></div></div></div><ul><li><div><img src="./MapStore HomePage_files/geoserver-GetLegendGraphic(4).image" style="max-width: 100%;"></div></li></ul><div class="mapstore-slider "><div class="noUi-target noUi-ltr noUi-horizontal"><div class="noUi-base"><div class="noUi-origin" style="left: 100%;"><div class="noUi-handle noUi-handle-lower" data-handle="0" style="z-index: 4;"></div></div></div></div></div></li></ul></div></main></div></div></div><span class="react-resizable-handle react-resizable-handle-se"></span></div><div data-grid="[object Object]" class="react-grid-item react-draggable cssTransforms react-resizable" style="width: 195px; height: 150px; position: absolute; transform: translate(1035px, 10px);"><div class="mapstore-widget-card " id="widget-chart-577fb510-3ff5-11f0-992a-d18abae8f724"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="mapstore-widget-info draggableHandle" style="border-top: 3px solid rgba(0, 0, 0, 0); transition: border-color 0.5s ease-out;"><div class="mapstore-widget-header"><span class="widget-icons"><div class="btn-group"><span><button target="icons" type="button" class="no-border btn btn-xs btn-link" fdprocessedid="0tqadn"><span class="glyphicon glyphicon-resize-full"></span></button></span></div></span><span class="widget-title">Perbandingan tingkat dominasi pasar</span><span class="mapstore-widget-options"><div role="toolbar" class="btn-toolbar"><div class="dropdown btn-group btn-group-default"><button id="dropdown-no-caret" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="widget-menu dropdown-toggle btn btn-default" fdprocessedid="7ct3xz"><span class="glyphicon glyphicon-option-vertical"></span></button><ul role="menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-no-caret"><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-pencil"></span><span>Edit</span></a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="http://localhost:7080/mapstore/#"><span class="glyphicon glyphicon-trash"></span><span>Delete</span></a></li></ul></div></div></span></div></div><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden;"><div class="ms2-border-layout-body" style="display: flex; flex: 1 1 0%; overflow-y: auto;"><main class="ms2-border-layout-content" style="flex: 1 1 0%; overflow-x: hidden;"><div class="feature-grid-drag-handle-show"><div class="react-grid-Container" style="width: 195px;"><div class="react-grid-Main"><div class="react-grid-Grid" style="overflow: hidden; outline: 0px; position: relative; min-height: 89.3333px;"><div height="28" class="react-grid-Header" style="position: relative; height: 28px;"><div width="0" height="28" class="react-grid-HeaderRow" style="position: absolute; top: 0px; left: 0px; width: 180px; overflow-x: hidden; min-height: auto;"><div style="width: 100%; height: 28px; white-space: nowrap; overflow: hidden;"><div class="react-grid-HeaderCell" style="width: 80px; left: 0px; display: inline-block; position: absolute; height: 28px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;"><div class="react-grid-HeaderCell-sortable" style="cursor: pointer;"><span class="pull-right"></span>DESA_2008</div><div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div></div><div class="react-grid-HeaderCell" style="width: 80px; left: 80px; display: inline-block; position: absolute; height: 28px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;"><div class="react-grid-HeaderCell-sortable" style="cursor: pointer;"><span class="pull-right"></span>NUMPOINTS</div><div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div></div><div class="react-grid-HeaderCell" style="width: 80px; left: 160px; display: inline-block; position: absolute; height: 28px; margin: 0px; text-overflow: ellipsis; white-space: nowrap; transform: none;"><div class="react-grid-HeaderCell-sortable" style="cursor: pointer;"><span class="pull-right"></span>NUMPOINTS_</div><div class="react-grid-HeaderCell__draggable" style="position: absolute; top: 0px; right: 0px; width: 6px; height: 100%;"></div></div></div></div></div><div><div class="react-grid-Viewport" style="padding: 0px; inset: 28px 0px 0px; overflow: hidden; position: absolute;"><div class="react-grid-Canvas" style="position: absolute; top: 0px; left: 0px; overflow: auto scroll; width: 195px; height: 61.3333px;"><div></div><div style="width: 240px;"><div height="28" class="react-grid-Row react-grid-Row--even" style="height: 28px; overflow: hidden;"><div height="28" value="HARGO BINANGUN" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 0px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span>HARGO BINANGUN</span></span></div></span></div></div></div><div height="28" value="0" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 80px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span><span>0</span></span></span></div></span></div></div></div><div height="28" value="0" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 160px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span><span>0</span></span></span></div></span></div></div></div></div><div height="28" class="react-grid-Row react-grid-Row--odd" style="height: 28px; overflow: hidden;"><div height="28" value="PONDOK REJO" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 0px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span>PONDOK REJO</span></span></div></span></div></div></div><div height="28" value="0" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 80px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span><span>0</span></span></span></div></span></div></div></div><div height="28" value="0" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 160px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span><span>0</span></span></span></div></span></div></div></div></div><div height="28" class="react-grid-Row react-grid-Row--even" style="height: 28px; overflow: hidden;"><div height="28" value="MORO REJO" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 0px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span>MORO REJO</span></span></div></span></div></div></div><div height="28" value="0" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 80px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span><span>0</span></span></span></div></span></div></div></div><div height="28" value="0" class="react-grid-Cell" style="position: absolute; width: 80px; height: 28px; left: 160px;"><div class="react-grid-Cell__value"><div style="margin-left: 0px; position: relative; top: 50%; transform: translateY(-50%);"><span><div><span><span><span>0</span></span></span></div></span></div></div></div></div><div style="height: 2324px;"><div style="width: 80px;"></div><div style="width: 80px;"></div><div style="width: 80px;"></div></div></div></div></div></div></div></div></div></div><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 236px; height: 130px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></main></div><div class="widget-footer"><span class="result-info"><span>86 Items</span></span></div></div></main></div></div></div><span class="react-resizable-handle react-resizable-handle-se"></span></div></div><div class="fade in modal " role="dialog" style="display: none; background: rgba(0, 0, 0, 0.5);"><div id="confirm-dialog" class="modal-dialog-draggable modal-dialog modal-content modal-dialog-container react-draggable" style="touch-action: none; display: none; transform: translate(0px, 150px);"><div class="modal-header draggable-header"><span role="header"><span class="user-panel-title"><span>Delete dashboard</span></span><button class="login-panel-close close"><span>×</span></button></span></div><div class="modal-body"><div role="body"><div class="ms-detail-body"><span>Are you sure you want to delete this resource?</span></div></div></div><div class="modal-footer"><div role="footer"><div class="btn-group"><button type="button" class="btn btn-danger"><span>Confirm</span></button><button type="button" class="btn btn-default"><span>Close</span></button></div></div></div></div></div><div class="" id="DRAGDROP_IMPORT_ZONE" style="position: relative; height: 100%; display: none;"><div style="position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.75); color: rgb(255, 255, 255); z-index: 2000; display: flex; text-align: center;"><button type="button" class="btn btn-default" style="border: none; background: transparent; color: white; font-size: 35px; top: 0px; right: 0px; position: absolute;"><span class="glyphicon glyphicon-1-close"></span></button><div style="margin: auto; max-width: 550px;"><div><span class="glyphicon glyphicon-upload" style="font-size: 80px;"></span><br><span>Drop a previously exported dashboard .json file</span><br><br><button type="button" class="btn btn-primary"><span>Select a file</span></button><hr><span>The data in the imported file will replace the data in the current dashboard</span></div></div></div><input type="file" multiple="" style="display: none;"></div></main><div id="mapstore-sidebar-menu-container" class="shadow-soft fullHeightSideBar" style="height: 100%; max-height: calc(100% - 30px);"><span id="mapstore-sidebar-menu"><button id="ms-add-card-dashboard" btndefaultprops="[object Object]" type="button" class="btn btn-tray" fdprocessedid="ts6po5"><span class="glyphicon glyphicon-plus"></span></button><button id="ms-map-connection-card-dashboard" btndefaultprops="[object Object]" type="button" class="btn btn-success" fdprocessedid="bqy5ff"><span class="glyphicon glyphicon-bulb-on"></span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray" fdprocessedid="vjtaur"><span class="glyphicon glyphicon-download"></span><span></span> <span>Export</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray" fdprocessedid="xtkdp6"><span class="glyphicon glyphicon-upload"></span><span></span> <span>Import</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray" fdprocessedid="tme5cc"><span class="glyphicon glyphicon-floppy-open"></span><span></span> <span>Save</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray" fdprocessedid="yw96uk"><span class="glyphicon glyphicon-floppy-open"></span><span></span> <span>Save As...</span></button><button maptype="openlayers" type="button" class="square-button btn btn-tray" fdprocessedid="8l0r3c"><span class="glyphicon glyphicon-trash"></span><span></span> <span>Delete dashboard</span></button><button maptype="openlayers" shareurlregex="(h[^#]*)#\/dashboard\/([A-Za-z0-9]*)" shareurlreplacestring="$1dashboard-embedded.html#/$2" embedoptions="[object Object]" type="button" class="square-button btn btn-tray" fdprocessedid="mk3uck"><span class="glyphicon glyphicon-share-alt"></span><span></span> <span>Share</span></button><button maptype="openlayers" containerposition="header" preset="dashboard_tutorial" type="button" class="square-button btn btn-tray" fdprocessedid="rmvt3g"><span class="glyphicon glyphicon-book"></span><span></span> <span>Tutorial</span></button><button maptype="openlayers" githuburl="https://github.com/geosolutions-it/MapStore2/tree/" type="button" class="square-button btn btn-tray" fdprocessedid="me5zkvc"><span class="glyphicon glyphicon-info-sign"></span><span></span> <span>About</span></button></span><div class="erd_scroll_detection_container erd_scroll_detection_container_animation_active" style="visibility: hidden; display: inline; width: 0px; height: 0px; z-index: -1; overflow: hidden; margin: 0px; padding: 0px;"><div dir="ltr" class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; width: 100%; height: 100%; left: 0px; top: 0px;"><div class="erd_scroll_detection_container" style="position: absolute; flex: 0 0 auto; overflow: hidden; z-index: -1; visibility: hidden; inset: -16px -15px -15px -16px;"><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; left: 0px; top: 0px; width: 81px; height: 666px;"></div></div><div style="position: absolute; flex: 0 0 auto; overflow: scroll; z-index: -1; visibility: hidden; width: 100%; height: 100%;"><div style="position: absolute; width: 200%; height: 200%;"></div></div></div></div></div></div><div class="query-form-root" role="navigation" style="position: absolute; inset: 0px auto 0px 0px; overflow: visible; width: 0px;"><div class="query-form-panel-container" style="z-index: 1044; position: absolute; top: 0px; bottom: 0px; transition: -webkit-transform 0.3s ease-out; will-change: transform; overflow-y: auto; width: 600px; left: 0px; transform: translateX(-100%); box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;"><div class="mapstore-query-builder"><div class="spinner-panel" style="margin: 0px auto; width: 60px;"><div class="sk-three-bounce sk-fade-in spinner"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div></div></div><div role="presentation" tabindex="0" style="z-index: 1023; position: fixed; inset: 0px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease-out, visibility 0.3s ease-out; background-color: rgba(0, 0, 0, 0.3); width: 0px;"></div><div style="position: absolute; inset: 0px; overflow-y: auto; transition: left 0.3s ease-out, right 0.3s ease-out;"><div></div></div></div></div></div></div></div><div><div class="joyride"></div><div id="intro-tutorial" class="tutorial-presentation-position" style="top: 158.5px;"></div></div><div class="notifications-wrapper"></div><span></span><div class="modal-fixed  "><div class="fade in modal ms-resizable-modal" role="dialog" style="display: flex; background: rgba(0, 0, 0, 0.5);"><div id="ms-resizable-modal" class=" modal-dialog modal-content modal-dialog-container" style="display: flex;"><div class="modal-header draggable-header"><span role="header"><h4 class="modal-title"><div class="ms-title"><span>Edit properties</span></div><span class="ms-header-btn glyphicon glyphicon-1-close"></span></h4></span></div><div class="modal-body"><div role="body" class="ms-flex modal-properties-container"><div class="container-fluid"><div class="ms-map-properties"><div class="row"></div><div class="row"><div class="col-xs-12"><div class="dropzone-thumbnail-container" style="pointer-events: auto;"><label class="control-label"><span>Thumbnail</span></label><div class="dropzone alert alert-info"><div class="dropzone-content-image"><span>Drop or click to import an image</span><br><span>(best 300 px X 180 px, max 500 kb)</span><div class="btn-group"><span></span></div></div><input type="file" style="display: none;"></div></div></div><div class="col-xs-12"><form><div class="form-group"><label class="control-label"><span>Name</span></label><input placeholder="Type a name..." type="text" class="form-control" value="Perbandingan Tingkat Dominasi Pasar Sleman" fdprocessedid="851j5h"></div><div class="form-group"><label class="control-label"><span>Description</span></label><input placeholder="Type a description..." type="text" class="form-control" value="" fdprocessedid="evsxf"></div><div class="form-group"><label class="control-label"><span>Created by</span></label><label class="control-label">admin</label></div><div class="form-group"><label class="control-label"><span>Created</span></label><label class="control-label">6/3/2025 4:06 AM</label></div><div class="form-group"><label class="control-label"><span>Last modified by</span></label><label class="control-label">admin</label></div><div class="form-group"><label class="control-label"><span>Modified</span></label><label class="control-label">6/3/2025 4:15 AM</label></div><div class="form-group"><label class="control-label"><span>Unadvertised</span></label><div class="checkbox"><label><input aria-label="advertisedResource" type="checkbox"></label></div></div></form></div></div><div class="ms-section"><div class="mapstore-block-width"><div class="row"><div class="col-xs-6"><div class="m-label"><span>Add new details</span></div></div><div class="col-xs-6"><div class="ms-details-sheet"><div class="pull-right"><div class="btn-group"><span><button type="button" class="square-button-md no-border btn btn-default" fdprocessedid="l3oek"><span class="glyphicon glyphicon-pencil-add"></span></button></span></div></div></div></div></div></div></div><div><table class="permissions-table table table-condensed table-hover"><thead><tr><th colspan="3"><span>Groups permissions</span></th></tr></thead><tbody><tr class="even"><td>everyone</td><td style="width: 150px;"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><div class="Select-multi-value-wrapper" id="react-select-17--value"><div class="Select-value"><span class="Select-value-label" role="option" aria-selected="true" id="react-select-17--value-item">can view</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-17--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" value="" fdprocessedid="5rlsaw" style="box-sizing: content-box; width: 5px;"><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 14px; font-family: &quot;Noto Sans&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></div><span class="Select-arrow-zone"><span class="Select-arrow"></span></span></div></div></td><td style="width: 50px;"><button type="button" class="btn btn-danger" fdprocessedid="h7hk9i"><span class="glyphicon glyphicon-1-close"></span></button></td></tr><tr><th colspan="3"><span>Add a rule...</span></th></tr><tr class="insert-row"><td><div class="Select is-searchable Select--single"><div class="Select-control"><div class="Select-multi-value-wrapper" id="react-select-15--value"><div class="Select-placeholder">Select a group...</div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-15--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" value="" fdprocessedid="18wyjj" style="box-sizing: content-box; width: 5px;"><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 14px; font-family: &quot;Noto Sans&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></div><span class="Select-arrow-zone"><span class="Select-arrow"></span></span></div></div></td><td style="width: 150px;"><div class="Select has-value is-searchable Select--single"><div class="Select-control"><div class="Select-multi-value-wrapper" id="react-select-16--value"><div class="Select-value"><span class="Select-value-label" role="option" aria-selected="true" id="react-select-16--value-item">can view</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-16--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" value="" fdprocessedid="78dnud" style="box-sizing: content-box; width: 5px;"><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 14px; font-family: &quot;Noto Sans&quot;, sans-serif; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></div><span class="Select-arrow-zone"><span class="Select-arrow"></span></span></div></div></td><td style="width: 50px;"><button type="button" class="disabled btn btn-sm btn-success" fdprocessedid="bc4ckl"><span class="glyphicon glyphicon-plus" style="font-size: 22px;"></span></button></td></tr></tbody></table></div></div></div></div></div><div class="modal-footer"><div role="footer" style="display: flex;"><div class="ms-resizable-modal-loading-spinner-container"></div><div class="ms-resizable-modal-loading-text"></div><div class="btn-group"><span><button type="button" class="btn btn-default" fdprocessedid="4zthdi"><span>Close</span></button><button type="button" class="btn btn-default" fdprocessedid="apkqdv"><span><span>Save</span></span></button></span></div></div></div></div></div></div></div><script defer="defer" src="./MapStore HomePage_files/mapstore2.js.download"></script><span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span><svg id="js-plotly-tester" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; left: -10000px; top: -10000px; width: 9000px; height: 9000px; z-index: 1;"><path class="js-reference-point" d="M0,0H1V1H0Z" style="stroke-width: 0; fill: black;"></path></svg></body></html>
